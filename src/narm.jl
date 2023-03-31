@@ -38,7 +38,7 @@ end
 
 function create_plots(
     transactions::Transactions,
-    layout::Layout,
+    settings::Settings,
     interval::Int64,
     antecedent::Vector{Attribute},
     consequence::Vector{Attribute},
@@ -76,7 +76,7 @@ function create_plots(
             area = plot(
                 calculate_area(length(Y), (maxval - minval), 0, minval),
                 opacity = 0.5,
-                fill = :blue,
+                fill = settings.antecedent_color,
                 aspect = :equal,
             )
             push!(
@@ -113,7 +113,7 @@ function create_plots(
             area = plot(
                 calculate_area(length(Y), (maxval2 - minval2), 0, minval2),
                 opacity = 0.5,
-                fill = :red,
+                fill = settings.consequence_color,
                 aspect = :equal,
             )
             push!(
@@ -142,5 +142,5 @@ function create_plots(
         end
     end
     final_plot = plot(plots..., layout = length(plots))
-    savefig(final_plot, "viz.pdf")
+    savefig(final_plot, settings.output_path)
 end

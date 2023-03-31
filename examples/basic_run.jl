@@ -4,11 +4,16 @@ using NarmViz
 transactions = Transactions("/home/iztok/julia-plotting/intervali.csv")
 
 # layout setting for visualization
-layout = Layout(
-    features = ["feat1", "feat2"],
-    antecedents = true,
-    consequence = true,
-    title = "My first plot",
+settings = Settings(
+    features = ["feat1", "feat2"], # which features to visualize | use "all" - to visualize all features
+    ignore_features = ["feat3"], # skip feature
+    interval = "interval", # name of column which denotes the interval
+    antecedents = true, # visualize antecedents
+    consequence = true, # visualize consequence
+    antecedent_color = :blue, # color for showing antecedent area
+    consequence_color = :red, # color for showing consequence area
+    title = "My first plot", # title of visualization
+    output_path = "visualization.pdf"
 )
 
 # vector of antecedents
@@ -26,4 +31,4 @@ consequence = [
 ]
 
 # call main function for visualization
-visualize(transactions, layout, 9, antecedents, consequence)
+visualize(transactions, settings, 9, antecedents, consequence)

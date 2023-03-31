@@ -8,7 +8,7 @@ using Random
 using StatsPlots
 
 export Attribute,
-    Layout,
+    Settings,
     Transactions,
     create_plots,
     calculate_points,
@@ -21,7 +21,7 @@ export Attribute,
 
 include("attribute.jl")
 include("transactions.jl")
-include("layout.jl")
+include("settings.jl")
 include("narm.jl")
 include("visualize.jl")
 
