@@ -12,6 +12,8 @@ The current version includes (but is not limited to) the following functions:
 - visualization of association rules,
 - exporting figures to files.
 
+## Plots examples
+
 ## Installation
 
 ```
