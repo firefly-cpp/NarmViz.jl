@@ -5,8 +5,7 @@ transactions = Transactions("/home/iztok/julia-plotting/intervali.csv")
 
 # layout setting for visualization
 settings = Settings(
-    features = ["feat1", "feat2"], # which features to visualize | use "all" - to visualize all features
-    ignore_features = ["feat3"], # skip feature
+    all_features = false, # visualize all features not only antecedents and consequence
     interval = "interval", # name of column which denotes the interval
     antecedents = true, # visualize antecedents
     consequence = true, # visualize consequence

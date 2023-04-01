@@ -1,6 +1,5 @@
 Base.@kwdef mutable struct Settings
-    features::Union{Vector{String},String}
-    ignore_features::Vector{String}
+    all_features::Bool = false
     interval::String
     antecedents::Bool = true
     consequence::Bool = true
