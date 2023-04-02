@@ -3,16 +3,16 @@ using NarmViz
 # load transaction database
 transactions = Transactions("/home/iztok/julia-plotting/intervali.csv")
 
-# layout setting for visualization
+# basic settings for visualization
 settings = Settings(
-    all_features = false, # visualize all features not only antecedents and consequence
+    all_features = true, # visualize all features not only antecedents and consequence
     interval = "interval", # name of column which denotes the interval
     antecedents = true, # visualize antecedents
     consequence = true, # visualize consequence
     antecedent_color = :blue, # color for showing antecedent area
     consequence_color = :red, # color for showing consequence area
     title = "My first plot", # title of visualization
-    output_path = "visualization.pdf"
+    output_path = "visualization.pdf" # path
 )
 
 # vector of antecedents
