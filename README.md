@@ -12,7 +12,11 @@ The current version includes (but is not limited to) the following functions:
 - visualization of association rules,
 - exporting figures to files.
 
-## Plots examples
+## Visualization examples
+
+Example 1            |  Example 2
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/logo/Fig1.png)  |  ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/logo/Fig2.png)
 
 ## Installation
 
