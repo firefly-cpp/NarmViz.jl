@@ -104,7 +104,7 @@ function create_plots(
             final_shapes = [shapes[src] for src in markers]
 
             area = plot(
-                calculate_area(length(Y), (maxval - minval), 0, minval),
+                calculate_area(length(Y)+1, (maxval - minval), 0, minval),
                 opacity = 0.5,
                 fill = settings.antecedent_color,
                 aspect = :equal,
@@ -124,7 +124,7 @@ function create_plots(
                     seriestype = :scatter,
                     xlim = [0, length(transactions.features) + 1],
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
-                    colour = [colors[rand(1:length(colors))]],
+                    colour = :purple,
                     markershape = final_shapes,
                     xlabel = "series",
                     legend = false,
@@ -143,7 +143,7 @@ function create_plots(
             final_shapes = [shapes[src] for src in markers]
 
             area = plot(
-                calculate_area(length(Y), (maxval2 - minval2), 0, minval2),
+                calculate_area(length(Y)+1, (maxval2 - minval2), 0, minval2),
                 opacity = 0.5,
                 fill = settings.consequence_color,
                 aspect = :equal,
@@ -163,7 +163,7 @@ function create_plots(
                     seriestype = :scatter,
                     xlim = [0, length(transactions.features) + 1],
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
-                    colour = [colors[rand(1:length(colors))]],
+                    colour = :green,
                     markershape = final_shapes,
                     xlabel = "series",
                     legend = false,
