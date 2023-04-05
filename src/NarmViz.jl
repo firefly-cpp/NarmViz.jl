@@ -14,8 +14,6 @@ export Attribute,
     calculate_points,
     select_feature,
     getfeaturenames,
-    if_antecedent,
-    if_consequence,
     calculate_area,
     visualize
 
