@@ -64,13 +64,17 @@ consequence = [
 visualize(transactions, settings, 9, antecedents, consequence)
 ```
 
-## Related work:
+## References
 
 Ideas are based on the following research papers:
 
-[1] Fister Jr, I., Fister, I., Fister, D., Podgorelec, V., & Salcedo-Sanz, S. (2023). A comprehensive review of visualization methods for association rule mining: Taxonomy, Challenges, Open problems and Future ideas. arXiv preprint arXiv:2302.12594.
+[1] Fister Jr, I., Fister, I., Fister, D., Podgorelec, V., & Salcedo-Sanz, S. (2023). [A comprehensive review of visualization methods for association rule mining: Taxonomy, Challenges, Open problems and Future ideas](https://arxiv.org/abs/2302.12594). arXiv preprint arXiv:2302.12594.
 
-[2] Fister Jr, I., Fister, D., Fister, I., Podgorelec, V., & Salcedo-Sanz, S. (2022). Time series numerical association rule mining variants in smart agriculture. arXiv preprint arXiv:2212.03669.
+[2] Fister Jr, I., Fister, D., Fister, I., Podgorelec, V., & Salcedo-Sanz, S. (2022). [Time series numerical association rule mining variants in smart agriculture](https://arxiv.org/abs/2212.03669). arXiv preprint arXiv:2212.03669.
+
+## Related software
+
+[NiaARM.jl](https://github.com/firefly-cpp/NiaARM.jl)
 
 ## License
 
