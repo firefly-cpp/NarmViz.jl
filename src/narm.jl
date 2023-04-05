@@ -29,6 +29,33 @@ function calculate_area(
     Shape(x3 .+ [0, x1, x1, 0], x4 .+ [0, 0, x2, x2])
 end
 
+function calculate_x_y(transactions::DataFrame, interval::Int64, feature::String)
+    Y = Matrix(select_feature(transactions, interval, feature))
+    x = Vector{Float64}()
+    for y = 1:length(Y)
+        append!(x, calculate_points(length(Y), y))
+    end
+    return Y, x
+end
+
+function get_shapes(Y::Matrix, rule::String, min::Float64, max::Float64)
+    # provide symbols for time series data points
+    # a is antecedent, n is a point not belonging to antecedent or consequence, c is a consequence
+    shapes = Dict('a' => :star, 'n' => :circle, 'c' => :hexagon)
+
+    markers = Vector{Char}()
+    for i = 1:length(Y)
+        if Y[i] >= min && Y[i] <= max && rule == "antecedent"
+            append!(markers, "a")
+        elseif Y[i] >= min && Y[i] <= max && rule == "consequence"
+            append!(markers, "c")
+        else
+            append!(markers, "n")
+        end
+    end
+    return [shapes[src] for src in markers]
+end
+
 """
 Implement a central function for the visualization of plots.
 """
@@ -41,10 +68,6 @@ function create_plots(
 )
     # list of selected colors
     colors = [:red, :blue, :green, :yellow, :navy, :purple, :cyan]
-
-    # provide symbols for time series data points
-    # a is antecedent, n is a point not belonging to antecedent or consequence, c is a consequence
-    shapes = Dict('a' => :star, 'n' => :circle, 'c' => :hexagon)
 
     # remove a column where the interval value appears. It is only essential when visualizing all features.
     deleteat!(
@@ -59,22 +82,9 @@ function create_plots(
     if settings.antecedents
         for ant in antecedent
             feature = ant.name
-            Y = Matrix(select_feature(transactions.transactions, interval, feature))
-            x = Vector{Float64}()
-            for y = 1:length(Y)
-                append!(x, calculate_points(length(Y), y))
-            end
+            Y, x = calculate_x_y(transactions.transactions, interval, feature)
 
-            markers = Vector{Char}()
-            for i = 1:length(Y)
-                if Y[i] >= ant.min && Y[i] <= ant.max
-                    append!(markers, "a")
-                else
-                    append!(markers, "n")
-                end
-            end
-
-            final_shapes = [shapes[src] for src in markers]
+            final_shapes = get_shapes(Y, "antecedent", ant.min, ant.max)
 
             area = plot(
                 calculate_area(length(Y)+1, (ant.max - ant.min), 0, ant.min),
@@ -111,22 +121,9 @@ function create_plots(
     if settings.consequence
         for con in consequence
             feature = con.name
-            Y = Matrix(select_feature(transactions.transactions, interval, feature))
-            x = Vector{Float64}()
-            for y = 1:length(Y)
-                append!(x, calculate_points(length(Y), y))
-            end
+            Y, x = calculate_x_y(transactions.transactions, interval, feature)
 
-            markers = Vector{Char}()
-            for i = 1:length(Y)
-                if Y[i] >= con.min && Y[i] <= con.max
-                    append!(markers, "c")
-                else
-                    append!(markers, "n")
-                end
-            end
-
-            final_shapes = [shapes[src] for src in markers]
+            final_shapes = get_shapes(Y, "consequence", con.min, con.max)
 
             area = plot(
                 calculate_area(length(Y)+1, (con.max - con.min), 0, con.min),
