@@ -74,7 +74,6 @@ function create_plots(
         transactions.features,
         findall(x -> x == settings.interval, transactions.features),
     )
-
     # store plots
     plots = Any[]
 
@@ -87,7 +86,7 @@ function create_plots(
             final_shapes = get_shapes(Y, "antecedent", ant.min, ant.max)
 
             area = plot(
-                calculate_area(length(Y)+1, (ant.max - ant.min), 0, ant.min),
+                calculate_area(length(Y) + 1, (ant.max - ant.min), 0, ant.min),
                 opacity = 0.5,
                 fill = settings.antecedent_color,
                 aspect = :equal,
@@ -113,7 +112,6 @@ function create_plots(
                     legend = false,
                 ),
             )
-
         end
     end
 
@@ -126,7 +124,7 @@ function create_plots(
             final_shapes = get_shapes(Y, "consequence", con.min, con.max)
 
             area = plot(
-                calculate_area(length(Y)+1, (con.max - con.min), 0, con.min),
+                calculate_area(length(Y) + 1, (con.max - con.min), 0, con.min),
                 opacity = 0.5,
                 fill = settings.consequence_color,
                 aspect = :equal,
@@ -155,6 +153,51 @@ function create_plots(
 
         end
     end
+
+    # visualize remaining features
+    if settings.all_features == true
+        for ant in antecedent
+            deleteat!(
+                transactions.features,
+                findall(x -> x == ant.name, transactions.features),
+            )
+        end
+
+        for con in consequence
+            deleteat!(
+                transactions.features,
+                findall(x -> x == con.name, transactions.features),
+            )
+        end
+        for i = 1:length(transactions.features)
+
+            Y, x =
+                calculate_x_y(transactions.transactions, interval, transactions.features[i])
+
+            final_shapes = get_shapes(Y, "plain", 0.0, 0.0)
+
+            push!(
+                plots,
+                plot(
+                    x,
+                    Y,
+                    title = transactions.features[i],
+                    titlefontsize = 6,
+                    xtickfontsize = 4,
+                    xguidefontsize = 4,
+                    ytickfontsize = 4,
+                    xticks = 0:2:length(transactions.features),
+                    seriestype = :scatter,
+                    xlim = [0, length(transactions.features) + 1],
+                    ylim = [minimum(Y) - 10, maximum(Y) + 10],
+                    colour = [colors[rand(1:length(colors))]],
+                    xlabel = "series",
+                    legend = false,
+                ),
+            )
+        end
+    end
+
 
     final_plot = plot(plots..., layout = length(plots))
     savefig(final_plot, settings.output_path)
