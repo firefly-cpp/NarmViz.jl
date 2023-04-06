@@ -14,6 +14,7 @@ export Attribute,
     calculate_points,
     select_feature,
     getfeaturenames,
+    getcolumnvalues,
     calculate_area,
     visualize
 

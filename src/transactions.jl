@@ -22,3 +22,7 @@ end
 function getfeaturenames(df::DataFrame)
     return names(df)
 end
+
+function getcolumnvalues(df::DataFrame, column::String)
+    return df[:,column]
+end

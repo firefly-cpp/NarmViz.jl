@@ -1,5 +1,6 @@
 Base.@kwdef mutable struct Settings
     all_features::Bool = false
+    timeseries::Bool = false
     interval::String
     antecedents::Bool = true
     consequence::Bool = true

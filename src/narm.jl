@@ -9,6 +9,10 @@ function select_feature(df::DataFrame, interval::Int64, feature::String)
     end
 end
 
+function select_feature(df::DataFrame, feature::String)
+    return getcolumnvalues(df, feature)
+end
+
 """
 Calculate the position for placing
 time series data on the x-axis.
@@ -38,7 +42,17 @@ function calculate_x_y(transactions::DataFrame, interval::Int64, feature::String
     return Y, x
 end
 
-function get_shapes(Y::Matrix, rule::String, min::Float64, max::Float64)
+function calculate_x_y(transactions::DataFrame, feature::String)
+    Y = select_feature(transactions, feature)
+    println("dolzina: ", length(Y))
+    x = Vector{Float64}()
+    for y = 1:length(Y)
+        append!(x, calculate_points(length(Y), y))
+    end
+    return Y, x
+end
+
+function get_shapes(Y::Union{Matrix, Vector}, rule::String, min::Float64, max::Float64)
     # provide symbols for time series data points
     # a is antecedent, n is a point not belonging to antecedent or consequence, c is a consequence
     shapes = Dict('a' => :star, 'n' => :circle, 'c' => :hexagon)
@@ -81,8 +95,11 @@ function create_plots(
     if settings.antecedents
         for ant in antecedent
             feature = ant.name
-            Y, x = calculate_x_y(transactions.transactions, interval, feature)
-
+            if settings.timeseries
+                Y, x = calculate_x_y(transactions.transactions, interval, feature)
+            else
+                Y, x = calculate_x_y(transactions.transactions, feature)
+            end
             final_shapes = get_shapes(Y, "antecedent", ant.min, ant.max)
 
             area = plot(
@@ -102,12 +119,13 @@ function create_plots(
                     xtickfontsize = 4,
                     xguidefontsize = 4,
                     ytickfontsize = 4,
-                    xticks = 0:2:length(transactions.features),
+                    xticks = 0:2:length(Y),
                     seriestype = :scatter,
-                    xlim = [0, length(transactions.features) + 1],
+                    xlim = [0, length(Y) + 1],
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
                     colour = :purple,
                     markershape = final_shapes,
+                    markersize = settings.timeseries ? 4 : 0.5,
                     xlabel = "series",
                     legend = false,
                 ),
@@ -119,7 +137,12 @@ function create_plots(
     if settings.consequence
         for con in consequence
             feature = con.name
-            Y, x = calculate_x_y(transactions.transactions, interval, feature)
+
+            if settings.timeseries
+                Y, x = calculate_x_y(transactions.transactions, interval, feature)
+            else
+                Y, x = calculate_x_y(transactions.transactions, feature)
+            end
 
             final_shapes = get_shapes(Y, "consequence", con.min, con.max)
 
@@ -137,7 +160,7 @@ function create_plots(
                     Y,
                     title = feature,
                     titlefontsize = 6,
-                    xtickfontsize = 4,
+                    xtickfontsize = settings.timeseries ? 4 : 1,
                     xguidefontsize = 4,
                     ytickfontsize = 4,
                     xticks = 0:2:length(transactions.features),
@@ -146,6 +169,7 @@ function create_plots(
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
                     colour = :green,
                     markershape = final_shapes,
+                    markersize = settings.timeseries ? 4 : 0.5,
                     xlabel = "series",
                     legend = false,
                 ),
@@ -171,8 +195,12 @@ function create_plots(
         end
         for i = 1:length(transactions.features)
 
-            Y, x =
-                calculate_x_y(transactions.transactions, interval, transactions.features[i])
+            if settings.timeseries
+                Y, x =
+                    calculate_x_y(transactions.transactions, interval, transactions.features[i])
+            else
+                Y, x = calculate_x_y(transactions.transactions, feature)
+            end
 
             final_shapes = get_shapes(Y, "plain", 0.0, 0.0)
 
