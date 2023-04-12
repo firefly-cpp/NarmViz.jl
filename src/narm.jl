@@ -44,7 +44,6 @@ end
 
 function calculate_x_y(transactions::DataFrame, feature::String)
     Y = select_feature(transactions, feature)
-    println("dolzina: ", length(Y))
     x = Vector{Float64}()
     for y = 1:length(Y)
         append!(x, calculate_points(length(Y), y))
