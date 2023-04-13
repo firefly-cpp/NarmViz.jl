@@ -42,6 +42,15 @@ function calculate_x_y(transactions::DataFrame, interval::Int64, feature::String
     return Y, x
 end
 
+function calculate_xticks(num_items)
+    if num_items < 50
+        return 0:2:num_items
+    else
+        t = num_items / 5
+        return 0:floor(Int, t):num_items
+    end
+end
+
 function calculate_x_y(transactions::DataFrame, feature::String)
     Y = select_feature(transactions, feature)
     x = Vector{Float64}()
@@ -118,7 +127,7 @@ function create_plots(
                     xtickfontsize = 4,
                     xguidefontsize = 4,
                     ytickfontsize = 4,
-                    xticks = 0:2:length(Y),
+                    xticks = calculate_xticks(length(Y)),
                     seriestype = :scatter,
                     xlim = [0, length(Y) + 1],
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
@@ -127,6 +136,7 @@ function create_plots(
                     markersize = settings.timeseries ? 4 : 0.5,
                     xlabel = "series",
                     legend = false,
+                    grid = length(Y) < 100 ? true : false,
                 ),
             )
         end
@@ -159,18 +169,19 @@ function create_plots(
                     Y,
                     title = feature,
                     titlefontsize = 6,
-                    xtickfontsize = settings.timeseries ? 4 : 1,
+                    xtickfontsize = 4,
                     xguidefontsize = 4,
                     ytickfontsize = 4,
-                    xticks = 0:2:length(transactions.features),
+                    xticks = calculate_xticks(length(Y)),
                     seriestype = :scatter,
-                    xlim = [0, length(transactions.features) + 1],
+                    xlim = [0, length(Y) + 1],
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
                     colour = :green,
                     markershape = final_shapes,
                     markersize = settings.timeseries ? 4 : 0.5,
                     xlabel = "series",
                     legend = false,
+                    grid = length(Y) < 100 ? true : false,
                 ),
             )
 
@@ -198,7 +209,7 @@ function create_plots(
                 Y, x =
                     calculate_x_y(transactions.transactions, interval, transactions.features[i])
             else
-                Y, x = calculate_x_y(transactions.transactions, feature)
+                Y, x = calculate_x_y(transactions.transactions, transactions.features[i])
             end
 
             final_shapes = get_shapes(Y, "plain", 0.0, 0.0)
@@ -213,13 +224,15 @@ function create_plots(
                     xtickfontsize = 4,
                     xguidefontsize = 4,
                     ytickfontsize = 4,
-                    xticks = 0:2:length(transactions.features),
+                    xticks = calculate_xticks(length(Y)),
                     seriestype = :scatter,
-                    xlim = [0, length(transactions.features) + 1],
+                    markersize = settings.timeseries ? 4 : 0.5,
+                    xlim = [0, length(Y) + 1],
                     ylim = [minimum(Y) - 10, maximum(Y) + 10],
                     colour = [colors[rand(1:length(colors))]],
                     xlabel = "series",
                     legend = false,
+                    grid = length(Y) < 100 ? true : false,
                 ),
             )
         end
