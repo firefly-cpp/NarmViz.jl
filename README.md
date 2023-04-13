@@ -2,7 +2,8 @@
 
 ## About
 
-NarmViz.jl is a Julia framework for visualization of time series numerical association rules.
+NarmViz.jl is a Julia framework primarily developed to visualize time series numerical association rules.
+Framework also supports the visualization of the other numerical association rules.
 
 ## Detailed insights
 The current version includes (but is not limited to) the following functions:
@@ -71,6 +72,10 @@ Ideas are based on the following research papers:
 [1] Fister Jr, I., Fister, I., Fister, D., Podgorelec, V., & Salcedo-Sanz, S. (2023). [A comprehensive review of visualization methods for association rule mining: Taxonomy, Challenges, Open problems and Future ideas](https://arxiv.org/abs/2302.12594). arXiv preprint arXiv:2302.12594.
 
 [2] Fister Jr, I., Fister, D., Fister, I., Podgorelec, V., & Salcedo-Sanz, S. (2022). [Time series numerical association rule mining variants in smart agriculture](https://arxiv.org/abs/2212.03669). arXiv preprint arXiv:2212.03669.
+
+[3] I. Fister Jr., I. Fister [A brief overview of swarm intelligence-based algorithms for numerical association rule mining](https://arxiv.org/abs/2010.15524). arXiv preprint arXiv:2010.15524 (2020).
+
+[4] I. Fister Jr., A. Iglesias, A. Gálvez, J. Del Ser, E. Osaba, I Fister. [Differential evolution for association rule mining using categorical and numerical attributes](http://www.iztok-jr-fister.eu/static/publications/231.pdf) In: Intelligent data engineering and automated learning - IDEAL 2018, pp. 79-88, 2018.
 
 ## Related software
 
