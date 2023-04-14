@@ -21,8 +21,8 @@ Example 1            |  Example 2
 
 ## Installation
 
-```
-pkg> add NarmViz
+```sh
+Pkg.add(url="https://github.com/firefly-cpp/NarmViz.jl")
 ```
 
 ## Usage
