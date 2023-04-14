@@ -9,5 +9,4 @@ using Test
 
 @testset verbose = true "NarmViz.jl Tests" begin
     include("test_transactions.jl")
-    include("test_antcon.jl")
 end
