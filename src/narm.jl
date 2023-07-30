@@ -3,6 +3,12 @@ Implement a simple query that filters
 the data corresponding to the selected interval.
 """
 function select_feature(df::DataFrame, interval::Int64, feature::String)
+
+    # Check if the given interval is valid
+    if !(interval in unique(df.interval))
+        throw(ArgumentError("Invalid interval: $interval"))
+    end
+
     values = @chain df begin
         @rsubset :interval == interval
         @select(cols(feature))
@@ -18,7 +24,8 @@ Calculate the position for placing
 time series data on the x-axis.
 """
 function calculate_points(num_items::Int64, position::Int64)
-    (1 / num_items) + position
+    step_size = 1 / num_items
+    step_size + position
 end
 
 """
@@ -34,6 +41,9 @@ function calculate_area(
 end
 
 function calculate_x_y(transactions::DataFrame, interval::Int64, feature::String)
+    # Check if the DataFrame is empty
+    isempty(transactions) && throw(ArgumentError("The transactions DataFrame is empty!"))
+
     Y = Matrix(select_feature(transactions, interval, feature))
     x = Vector{Float64}()
     for y = 1:length(Y)
