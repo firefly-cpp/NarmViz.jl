@@ -1,5 +1,9 @@
 # NarmViz.jl
 
+[![GitHub license](https://img.shields.io/github/license/firefly-cpp/NarmViz.jl.svg)](https://github.com/firefly-cpp/NarmViz.jl/blob/master/LICENSE)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/firefly-cpp/NarmViz.jl.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/firefly-cpp/NarmViz.jl.svg)
+
 ## About
 
 NarmViz.jl is a Julia framework primarily developed to visualize time series numerical association rules.
