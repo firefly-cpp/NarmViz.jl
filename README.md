@@ -88,6 +88,10 @@ Ideas are based on the following research papers:
 
 [NiaARM.jl](https://github.com/firefly-cpp/NiaARM.jl)
 
+## Cite us
+
+ Fister, I. Jr, Fister, I., Podgorelec, V., Salcedo-Sanz, S., & Holzinger, A. (2024). NarmViz: A novel method for visualization of time series numerical association rules for smart agriculture. Expert Systems, 41(3), e13503. [https://doi.org/10.1111/exsy.13503](https://doi.org/10.1111/exsy.13503)
+
 ## License
 
 This package is distributed under the MIT License. This license can be found online at <http://www.opensource.org/licenses/MIT>.

@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Fister Jr."
+  given-names: "Iztok"
+  orcid: "https://orcid.org/0000-0002-6418-1272"
+title: "NarmViz.jl"
+version: 0.1.0
+doi: 10.1111/exsy.13503
+date-released: 2023-11-15
+url: "https://github.com/firefly-cpp/NarmViz.jl"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Fister Jr."
+    given-names: "Iztok"
+    orcid: "https://orcid.org/0000-0002-6418-1272"
+  - family-names: "Fister"
+    given-names: "Iztok"
+    orcid: "https://orcid.org/0000-0002-9964-6957"
+  - family-names: "Podgorelec"
+    given-names: "Vili"
+    orcid: "https://orcid.org/0000-0001-6955-7868"
+  - family-names: "Salcedo-Sanz"
+    given-names: "Sancho"
+    orcid: "https://orcid.org/0000-0002-4048-1676"
+  - family-names: "Holzinger"
+    given-names: "Andreas"
+    orcid: "https://orcid.org/0000-0002-6786-5194"
+  doi: "10.0000/00000"
+  journal: "Expert Systems"
+  start: 1 # First page number
+  end: 15 # Last page number
+  title: "NarmViz: A novel method for visualization of time series numerical association rules for smart agriculture"
+  issue: 41
+  volume: 3
+  year: 2024
