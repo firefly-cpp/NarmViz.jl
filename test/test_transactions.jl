@@ -1,9 +1,10 @@
 @testset "Transaction database Tests" begin
 
-    transactions = Transactions("test_data/simple-test.csv")
-    features = transactions.features
+    transactions = load_transactions("test_data/simple-test.csv")
 
-    @test length(features) == 17
+    @test ncol(transactions) == 17
+
+    features = names(transactions)
 
     @test features[1] == "interval"
     @test features[2] == "temperature_avg"
