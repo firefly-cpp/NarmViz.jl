@@ -1,6 +1,6 @@
 # NarmViz.jl
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![GitHub license](https://img.shields.io/github/license/firefly-cpp/NarmViz.jl.svg)](https://github.com/firefly-cpp/NarmViz.jl/blob/master/LICENSE)
@@ -110,6 +110,7 @@ This framework is provided as-is, and there are no guarantees that it fits your 
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://www.iztok-jr-fister.eu/"><img src="https://avatars.githubusercontent.com/u/1633361?v=4?s=100" width="100px;" alt="Iztok Fister Jr."/><br /><sub><b>Iztok Fister Jr.</b></sub></a><br /><a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=firefly-cpp" title="Code">💻</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=firefly-cpp" title="Documentation">📖</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=firefly-cpp" title="Tests">⚠️</a> <a href="#ideas-firefly-cpp" title="Ideas, Planning, & Feedback">🤔</a> <a href="#mentoring-firefly-cpp" title="Mentoring">🧑‍🏫</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/zStupan"><img src="https://avatars.githubusercontent.com/u/48752988?v=4?s=100" width="100px;" alt="zStupan"/><br /><sub><b>zStupan</b></sub></a><br /><a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=zStupan" title="Code">💻</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/issues?q=author%3AzStupan" title="Bug reports">🐛</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=zStupan" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
