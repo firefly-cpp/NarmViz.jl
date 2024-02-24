@@ -1,7 +1,7 @@
 @testset "Transaction database Tests" begin
 
-    transactions = load_transactions("test_data/simple-test.csv")
-
+    dataset = Dataset("test_data/simple-test.csv")
+    transactions = dataset.transactions
     @test ncol(transactions) == 17
 
     features = names(transactions)
