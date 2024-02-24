@@ -1,11 +1,9 @@
 # NarmViz.jl
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![GitHub license](https://img.shields.io/github/license/firefly-cpp/NarmViz.jl.svg)](https://github.com/firefly-cpp/NarmViz.jl/blob/master/LICENSE)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/firefly-cpp/NarmViz.jl.svg)
-![GitHub contributors](https://img.shields.io/github/contributors/firefly-cpp/NarmViz.jl.svg)
+[![version](https://juliahub.com/docs/General/NarmViz/stable/version.svg)](https://juliahub.com/ui/Packages/General/NarmViz)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
 ## About
 
