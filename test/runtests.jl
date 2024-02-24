@@ -1,4 +1,5 @@
 using NarmViz
+using NiaARM
 using CSV
 using DataFrames
 using Plots
