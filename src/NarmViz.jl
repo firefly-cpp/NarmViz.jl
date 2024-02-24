@@ -3,12 +3,10 @@ module NarmViz
 using CSV
 using DataFrames
 using Plots
+using NiaARM
 
-export Attribute, Rule, visualize, load_transactions
+export visualize, plotattribute, plotfeature
 
-include("transactions.jl")
-include("attribute.jl")
-include("rule.jl")
 include("visualize.jl")
 
 end
