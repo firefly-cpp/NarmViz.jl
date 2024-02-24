@@ -121,7 +121,7 @@ end
 function plotfeature(feature::CategoricalFeature, transactions::DataFrame)
     data = valuecounts(transactions[:, feature.name])
     plt = mosaic(data)
-    title!(plt, feature.name)
+    title!(plt, feature.name, titlefontsize=6)
     return plt
 end
 
