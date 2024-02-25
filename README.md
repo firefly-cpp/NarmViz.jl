@@ -20,9 +20,13 @@ The current version includes (but is not limited to) the following functions:
 
 ## Visualization examples
 
-Example 1            |  Example 2
-:-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig1.png)  |  ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig2.png)
+|                                          Example 1                                          |                                          Example 2                                          |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
+| ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig1.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig2.png) |
+
+|                                          Example 3                                          |                                          Example 4                                          |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
+| ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig3.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig4.png) |
 
 ## Installation
 
