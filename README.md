@@ -5,20 +5,18 @@
 [![version](https://juliahub.com/docs/General/NarmViz/stable/version.svg)](https://juliahub.com/ui/Packages/General/NarmViz)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
-## About
+## About 📋
 
-NarmViz.jl is a Julia framework primarily developed to visualize time series numerical association rules.
-Framework also supports the visualization of the other numerical association rules.
+NarmViz.jl is a Julia framework primarily developed to visualize time series numerical association rules. 📈 The framework also supports visualization of other numerical association rules.
 
-## Detailed insights
+## Detailed insights ✨
 The current version includes (but is not limited to) the following functions:
+- loading datasets in CSV format 📁
+- preprocessing of data 🔄
+- visualization of association rules 📊
+- exporting figures to files 💾
 
-- loading datasets in CSV format,
-- preprocessing of data,
-- visualization of association rules,
-- exporting figures to files.
-
-## Visualization examples
+## Visualization examples 📊
 
 |                                          Example 1                                          |                                          Example 2                                          |
 |:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
@@ -28,13 +26,13 @@ The current version includes (but is not limited to) the following functions:
 |:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
 | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig3.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig4.png) |
 
-## Installation
+## Installation 📦
 
 ```
 pkg> add NarmViz
 ```
 
-## Usage
+## Usage 🚀
 
 ### Basic run example
 
@@ -73,7 +71,7 @@ visualize(
 )
 ```
 
-## References
+## References 📚
 
 Ideas are based on the following research papers:
 
@@ -85,13 +83,13 @@ Ideas are based on the following research papers:
 
 [4] I. Fister Jr., A. Iglesias, A. Gálvez, J. Del Ser, E. Osaba, I Fister. [Differential evolution for association rule mining using categorical and numerical attributes](http://www.iztok-jr-fister.eu/static/publications/231.pdf) In: Intelligent data engineering and automated learning - IDEAL 2018, pp. 79-88, 2018.
 
-## Related software
+## Related software 🔗
 
 [NiaARM.jl](https://github.com/firefly-cpp/NiaARM.jl)
 
 ## Cite us
 
- Fister, I. Jr, Fister, I., Podgorelec, V., Salcedo-Sanz, S., & Holzinger, A. (2024). NarmViz: A novel method for visualization of time series numerical association rules for smart agriculture. Expert Systems, 41(3), e13503. [https://doi.org/10.1111/exsy.13503](https://doi.org/10.1111/exsy.13503)
+Fister, I. Jr, Fister, I., Podgorelec, V., Salcedo-Sanz, S., & Holzinger, A. (2024). NarmViz: A novel method for visualization of time series numerical association rules for smart agriculture. Expert Systems, 41(3), e13503. [https://doi.org/10.1111/exsy.13503](https://doi.org/10.1111/exsy.13503)
 
 ## License
 
@@ -111,6 +109,7 @@ This framework is provided as-is, and there are no guarantees that it fits your 
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://www.iztok-jr-fister.eu/"><img src="https://avatars.githubusercontent.com/u/1633361?v=4?s=100" width="100px;" alt="Iztok Fister Jr."/><br /><sub><b>Iztok Fister Jr.</b></sub></a><br /><a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=firefly-cpp" title="Code">💻</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=firefly-cpp" title="Documentation">📖</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=firefly-cpp" title="Tests">⚠️</a> <a href="#ideas-firefly-cpp" title="Ideas, Planning, & Feedback">🤔</a> <a href="#mentoring-firefly-cpp" title="Mentoring">🧑‍🏫</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/zStupan"><img src="https://avatars.githubusercontent.com/u/48752988?v=4?s=100" width="100px;" alt="zStupan"/><br /><sub><b>zStupan</b></sub></a><br /><a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=zStupan" title="Code">💻</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/issues?q=author%3AzStupan" title="Bug reports">🐛</a> <a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=zStupan" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lahovniktadej"><img src="https://avatars.githubusercontent.com/u/57890734?v=4?s=100" width="100px;" alt="Tadej Lahovnik"/><br /><sub><b>Tadej Lahovnik</b></sub></a><br /><a href="https://github.com/firefly-cpp/NarmViz.jl/commits?author=lahovniktadej" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
