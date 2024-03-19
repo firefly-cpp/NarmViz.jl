@@ -74,8 +74,6 @@ function plotattribute(attribute::NumericalAttribute, transactions::DataFrame, i
         xguidefontsize=4,
         ytickfontsize=4,
         seriestype=:scatter,
-        xlim=[0, numitems],
-        ylim=[minimum(y) - 10, maximum(y) + 10],
         colour=linecolour,
         markershape=markershape,
         markersize=2,
@@ -88,7 +86,7 @@ end
 function plotattribute(attribute::CategoricalAttribute, transactions::DataFrame, isantecedent::Bool)
     data = valuecounts(transactions[:, attribute.name])
     attributecolor = isantecedent ? :blue : :red
-    colors = Dict(name => name == attribute.name ? attributecolor : :grey for name in keys(data))
+    colors = Dict(category => category == attribute.category ? attributecolor : :grey for category in keys(data))
     plt = mosaic(data, colors=colors)
     title!(plt, attribute.name, titlefontsize=6)
     return plt
@@ -106,8 +104,6 @@ function plotfeature(feature::NumericalFeature, transactions::DataFrame)
         xguidefontsize=4,
         ytickfontsize=4,
         seriestype=:scatter,
-        xlim=[0, nrow(transactions)],
-        ylim=[minimum(y) - 10, maximum(y) + 10],
         markershape=:circle,
         markersize=2,
         color=randcolor(),
@@ -139,9 +135,8 @@ function visualize(
     df = transactions[:, :] # make copy
     if timeseries
         subset!(df, intervalcolumn => i -> i .== interval)
+        select!(df, Not([intervalcolumn]))
     end
-
-    select!(df, Not([intervalcolumn]))
 
     plots = []
 
