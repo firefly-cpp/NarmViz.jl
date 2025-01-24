@@ -1,22 +1,47 @@
-# NarmViz.jl
+<h1 align="center">
+  NarmViz.jl
+</h1>
 
-[![GitHub license](https://img.shields.io/github/license/firefly-cpp/NarmViz.jl.svg)](https://github.com/firefly-cpp/NarmViz.jl/blob/master/LICENSE)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/firefly-cpp/NarmViz.jl.svg)
-[![version](https://juliahub.com/docs/General/NarmViz/stable/version.svg)](https://juliahub.com/ui/Packages/General/NarmViz)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<p align="center">
+  <a href="https://juliahub.com/ui/Packages/General/NarmViz">
+    <img alt="Version" src="https://juliahub.com/docs/General/NarmViz/stable/version.svg" />
+  </a>
+  <a href="https://github.com/firefly-cpp/NarmViz.jl/blob/master/LICENSE">
+    <img alt="GitHub license" src="https://img.shields.io/github/license/firefly-cpp/NarmViz.jl.svg" />
+  </a>
+</p>
 
-## About 📋
+<p align="center">
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/firefly-cpp/NarmViz.jl.svg" />
+  <img alt="Average time to resolve an issue" src="http://isitmaintained.com/badge/resolution/firefly-cpp/NarmViz.jl.svg" href="https://isitmaintained.com/project/firefly-cpp/NarmViz.jl">
+  <img alt="Percentage of issues still open" src="http://isitmaintained.com/badge/open/firefly-cpp/NarmViz.jl.svg" href="https://isitmaintained.com/project/firefly-cpp/NarmViz.jl">
+  <a href="#-contributors">
+    <img alt="All Contributors" src="https://img.shields.io/badge/all_contributors-2-orange.svg" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="#-detailed-insights">✨ Detailed insights</a> •
+  <a href="#-visualization-examples">📊 Visualization examples</a> •
+  <a href="#-installation">📦 Installation</a> •
+  <a href="#-usage">🚀 Usage</a> •
+  <a href="#-references">📚 References</a> •
+  <a href="#-related-software">🔗 Related software</a> •
+  <a href="#-cite-us">📄 Cite us</a> •
+  <a href="#-license">🔑 License</a> •
+  <a href="#-contributors">🫂 Contributors</a>
+</p>
 
 NarmViz.jl is a Julia framework primarily developed to visualize time series numerical association rules. 📈 The framework also supports visualization of other numerical association rules.
 
-## Detailed insights ✨
+## ✨ Detailed insights
 The current version includes (but is not limited to) the following functions:
 - loading datasets in CSV format 📁
 - preprocessing of data 🔄
 - visualization of association rules 📊
 - exporting figures to files 💾
 
-## Visualization examples 📊
+## 📊 Visualization examples
 
 |                                          Example 1                                          |                                          Example 2                                          |
 |:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
@@ -26,13 +51,13 @@ The current version includes (but is not limited to) the following functions:
 |:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
 | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig3.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig4.png) |
 
-## Installation 📦
+## 📦 Installation
 
 ```
 pkg> add NarmViz
 ```
 
-## Usage 🚀
+## 🚀 Usage
 
 ### Basic run example
 
@@ -71,7 +96,7 @@ visualize(
 )
 ```
 
-## References 📚
+## 📚 References
 
 Ideas are based on the following research papers:
 
@@ -83,15 +108,15 @@ Ideas are based on the following research papers:
 
 [4] I. Fister Jr., A. Iglesias, A. Gálvez, J. Del Ser, E. Osaba, I Fister. [Differential evolution for association rule mining using categorical and numerical attributes](http://www.iztok-jr-fister.eu/static/publications/231.pdf) In: Intelligent data engineering and automated learning - IDEAL 2018, pp. 79-88, 2018.
 
-## Related software 🔗
+## 🔗 Related software
 
 [NiaARM.jl](https://github.com/firefly-cpp/NiaARM.jl)
 
-## Cite us
+## 📄 Cite us
 
 Fister, I. Jr, Fister, I., Podgorelec, V., Salcedo-Sanz, S., & Holzinger, A. (2024). NarmViz: A novel method for visualization of time series numerical association rules for smart agriculture. Expert Systems, 41(3), e13503. [https://doi.org/10.1111/exsy.13503](https://doi.org/10.1111/exsy.13503)
 
-## License
+## 🔑 License
 
 This package is distributed under the MIT License. This license can be found online at <http://www.opensource.org/licenses/MIT>.
 
@@ -99,7 +124,7 @@ This package is distributed under the MIT License. This license can be found onl
 
 This framework is provided as-is, and there are no guarantees that it fits your purposes or that it is bug-free. Use it at your own risk!
 
-## Contributors
+## 🫂 Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
