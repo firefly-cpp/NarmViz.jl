@@ -1,17 +1,24 @@
-function plotattribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
-    return plot_numerical_attribute(attribute, transactions, isantecedent)
+function plotattribute(
+    attribute::Union{NumericalAttribute,CategoricalAttribute},
+    transactions::DataFrame,
+    isantecedent::Bool
+)
+    if attribute isa CategoricalAttribute
+        return plot_categorical_attribute(attribute, transactions, isantecedent)
+    elseif attribute isa NumericalAttribute
+        return plot_numerical_attribute(attribute, transactions, isantecedent)
+    end
 end
 
-function plotattribute(attribute::CategoricalAttribute, transactions::DataFrame, isantecedent::Bool)
-    return plot_categorical_attribute(attribute, transactions, isantecedent)
-end
-
-function plotfeature(feature::NumericalFeature, transactions::DataFrame)
-    return plot_numerical_feature(feature, transactions)
-end
-
-function plotfeature(feature::CategoricalFeature, transactions::DataFrame)
-    return plot_categorical_feature(feature, transactions)
+function plotfeature(
+    feature::Union{NumericalFeature,CategoricalFeature},
+    transactions::DataFrame
+)
+    if feature isa CategoricalFeature
+        return plot_categorical_feature(feature, transactions)
+    elseif feature isa NumericalFeature
+        return plot_numerical_feature(feature, transactions)
+    end
 end
 
 function visualize(
