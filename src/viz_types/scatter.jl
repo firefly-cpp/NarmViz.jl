@@ -1,4 +1,4 @@
-function plot_numerical_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
+function plot_scatter_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
     numitems = nrow(transactions)
     x = 1:numitems
     y = transactions[:, attribute.name]
@@ -32,7 +32,7 @@ function plot_numerical_attribute(attribute::NumericalAttribute, transactions::D
     )
 end
 
-function plot_numerical_feature(feature::NumericalFeature, transactions::DataFrame)
+function plot_scatter_num_feature(feature::NumericalFeature, transactions::DataFrame)
     x = 1:nrow(transactions)
     y = transactions[:, feature.name]
     return plot(
