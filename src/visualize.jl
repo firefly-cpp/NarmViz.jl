@@ -16,7 +16,7 @@ end
 
 function visualize(
     rule::Rule,
-    transactions::DataFrame;
+    data::Union{DataFrame,Dataset};
     path::Union{String,Nothing}=nothing,
     allfeatures::Bool=false,
     antecedent::Bool=true,
@@ -25,6 +25,9 @@ function visualize(
     intervalcolumn::String="interval",
     interval::Int64=0
 )
+    # Use passed transactions right away, or extract transactions if dataset is passed
+    transactions = data isa Dataset ? data.transactions : data
+
     df = transactions[:, :] # make copy
     if timeseries
         subset!(df, intervalcolumn => i -> i .== interval)
@@ -67,29 +70,4 @@ function visualize(
     else
         savefig(plt, path)
     end
-end
-
-
-function visualize(
-    rule::Rule,
-    dataset::Dataset;
-    path::Union{String,Nothing}=nothing,
-    allfeatures::Bool=false,
-    antecedent::Bool=true,
-    consequent::Bool=true,
-    timeseries::Bool=false,
-    intervalcolumn::String="interval",
-    interval::Int64=0
-)
-    visualize(
-        rule,
-        dataset.transactions,
-        path=path,
-        allfeatures=allfeatures,
-        antecedent=antecedent,
-        consequent=consequent,
-        timeseries=timeseries,
-        intervalcolumn=intervalcolumn,
-        interval=interval
-    )
 end
