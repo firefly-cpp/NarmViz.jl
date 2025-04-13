@@ -1,7 +1,3 @@
-include("utils.jl")
-include("viz_types/mosaic.jl")
-include("viz_types/scatter.jl")
-
 function plotattribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
     return plot_numerical_attribute(attribute, transactions, isantecedent)
 end
