@@ -1,4 +1,4 @@
-include("visualize.jl")
+include("utils.jl")
 include("viz_types/mosaic.jl")
 include("viz_types/scatter.jl")
 
