@@ -1,17 +1,38 @@
-function plotattribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
-    return plot_numerical_attribute(attribute, transactions, isantecedent)
+function plotattribute(
+    attribute::Union{NumericalAttribute,CategoricalAttribute},
+    transactions::DataFrame,
+    plot_type::String,
+    isantecedent::Bool
+)
+    if attribute isa CategoricalAttribute
+        return plot_categorical_attribute(attribute, transactions, isantecedent)
+    elseif attribute isa NumericalAttribute
+        if plot_type == "scatter"
+            return plot_scatter_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == "bar"
+            return plot_bar_num_attribute(attribute, transactions, isantecedent)
+        end
+    end
+
+    @assert false "Unsupported plot type for attribute: $plot_type"
 end
 
-function plotattribute(attribute::CategoricalAttribute, transactions::DataFrame, isantecedent::Bool)
-    return plot_categorical_attribute(attribute, transactions, isantecedent)
-end
+function plotfeature(
+    feature::Union{NumericalFeature,CategoricalFeature},
+    transactions::DataFrame,
+    plot_type::String
+)
+    if feature isa CategoricalFeature
+        return plot_categorical_feature(feature, transactions)
+    elseif feature isa NumericalFeature
+        if plot_type == "scatter"
+            return plot_scatter_num_feature(feature, transactions)
+        elseif plot_type == "bar"
+            return plot_bar_num_feature(feature, transactions)
+        end
+    end
 
-function plotfeature(feature::NumericalFeature, transactions::DataFrame)
-    return plot_numerical_feature(feature, transactions)
-end
-
-function plotfeature(feature::CategoricalFeature, transactions::DataFrame)
-    return plot_categorical_feature(feature, transactions)
+    @assert false "Unsupported plot type for feature: $plot_type"
 end
 
 function visualize(
@@ -23,7 +44,8 @@ function visualize(
     consequent::Bool=true,
     timeseries::Bool=false,
     intervalcolumn::String="interval",
-    interval::Int64=0
+    interval::Int64=0,
+    plot_type::String="scatter"
 )
     # Use passed transactions right away, or extract transactions if dataset is passed
     transactions = data isa Dataset ? data.transactions : data
@@ -38,13 +60,13 @@ function visualize(
 
     if antecedent
         for attribute in rule.antecedent
-            push!(plots, plotattribute(attribute, df, true))
+            push!(plots, plotattribute(attribute, df, plot_type, true))
         end
     end
 
     if consequent
         for attribute in rule.consequent
-            push!(plots, plotattribute(attribute, df, false))
+            push!(plots, plotattribute(attribute, df, plot_type, false))
         end
     end
 
@@ -59,7 +81,7 @@ function visualize(
 
         features = NiaARM.getfeatures(df)
         for feature in features
-            push!(plots, plotfeature(feature, df))
+            push!(plots, plotfeature(feature, df, plot_type))
         end
     end
 

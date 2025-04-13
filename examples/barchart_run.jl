@@ -29,5 +29,5 @@ visualize(
     timeseries=true, # set false for non-time series datasets
     intervalcolumn="interval", # Name of the column which denotes the interval (only for time series datasets)
     interval=3, # which interval to visualize
-    plot_type="scatter"
+    plot_type="bar"
 )

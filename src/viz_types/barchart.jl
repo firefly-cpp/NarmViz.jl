@@ -1,4 +1,4 @@
-function plot_scatter_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
+function plot_bar_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
     numitems = nrow(transactions)
     x = 1:numitems
     y = transactions[:, attribute.name]
@@ -22,7 +22,7 @@ function plot_scatter_num_attribute(attribute::NumericalAttribute, transactions:
         xtickfontsize=4,
         xguidefontsize=4,
         ytickfontsize=4,
-        seriestype=:scatter,
+        seriestype=:bar,
         colour=linecolour,
         markershape=markershape,
         markersize=2,
@@ -32,7 +32,7 @@ function plot_scatter_num_attribute(attribute::NumericalAttribute, transactions:
     )
 end
 
-function plot_scatter_num_feature(feature::NumericalFeature, transactions::DataFrame)
+function plot_bar_num_feature(feature::NumericalFeature, transactions::DataFrame)
     x = 1:nrow(transactions)
     y = transactions[:, feature.name]
     return plot(
