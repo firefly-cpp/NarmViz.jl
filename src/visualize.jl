@@ -9,6 +9,8 @@ function plotattribute(
     elseif attribute isa NumericalAttribute
         if plot_type == "scatter"
             return plot_scatter_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == "bar"
+            return plot_bar_num_attribute(attribute, transactions, isantecedent)
         end
     end
 
@@ -25,9 +27,11 @@ function plotfeature(
     elseif feature isa NumericalFeature
         if plot_type == "scatter"
             return plot_scatter_num_feature(feature, transactions)
+        elseif plot_type == "bar"
+            return plot_bar_num_feature(feature, transactions)
         end
     end
-    
+
     @assert false "Unsupported plot type for feature: $plot_type"
 end
 
