@@ -1,4 +1,4 @@
-function plot_bar_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
+function plot_line_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
     numitems = nrow(transactions)
     x = 1:numitems
     y = transactions[:, attribute.name]
@@ -22,7 +22,7 @@ function plot_bar_num_attribute(attribute::NumericalAttribute, transactions::Dat
         xtickfontsize=4,
         xguidefontsize=4,
         ytickfontsize=4,
-        seriestype=:bar,
+        seriestype=:line,
         colour=linecolour,
         markershape=markershape,
         markersize=2,
@@ -32,7 +32,7 @@ function plot_bar_num_attribute(attribute::NumericalAttribute, transactions::Dat
     )
 end
 
-function plot_bar_num_feature(feature::NumericalFeature, transactions::DataFrame)
+function plot_line_num_feature(feature::NumericalFeature, transactions::DataFrame)
     x = 1:nrow(transactions)
     y = transactions[:, feature.name]
     return plot(
@@ -43,7 +43,7 @@ function plot_bar_num_feature(feature::NumericalFeature, transactions::DataFrame
         xtickfontsize=4,
         xguidefontsize=4,
         ytickfontsize=4,
-        seriestype=:bar,
+        seriestype=:line,
         markershape=:circle,
         markersize=2,
         color=randcolor(),

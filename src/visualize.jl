@@ -11,6 +11,8 @@ function plotattribute(
             return plot_scatter_num_attribute(attribute, transactions, isantecedent)
         elseif plot_type == "bar"
             return plot_bar_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == "line"
+            return plot_line_num_attribute(attribute, transactions, isantecedent)
         end
     end
 
@@ -29,6 +31,8 @@ function plotfeature(
             return plot_scatter_num_feature(feature, transactions)
         elseif plot_type == "bar"
             return plot_bar_num_feature(feature, transactions)
+        elseif plot_type == "line"
+            return plot_line_num_feature(feature, transactions)
         end
     end
 
