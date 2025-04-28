@@ -17,4 +17,5 @@ To use NarmViz.jl, you need to import the package in your Julia script or REPL:
 ```julia
 using NarmViz
 ```
-You can then start using the [functions](api.md) provided by NarmViz.jl to visualize your data.
+Now you are ready to start visualizing your data with NarmViz.jl!
+For further information on how to use the package, check out the [API Reference](api.md) and [Examples](examples.md) sections.
