@@ -1,137 +1,119 @@
-rectangle(x, y, w, h) = Shape(x .+ [0, w, w, 0], y .+ [0, 0, h, h])
+"""
+    plotattribute(attribute, transactions, plot_type, isantecedent)
 
-randcolor() = rand(palette(:phase, 255)[1:end])
+Generates a visualization for a single attribute based on the provided transactions data.
 
-function valuecounts(column)
-    counts = Dict{String,Int}()
-    for value in column
-        counts[value] = get(counts, value, 0) + 1
-    end
-    return sort(counts)
-end
+# Arguments
+- `attribute::Union{NumericalAttribute,CategoricalAttribute}`: an attribute to visualize
+- `transactions::DataFrame`: a data frame containing transaction data
+- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot")
+- `isantecedent::Bool`: a decision if the attribute is part of the antecedent (true) or consequent (false)
 
-function mosaic(data; colors=nothing, gap=0.005)
-    colors = isnothing(colors) ? Dict() : colors
-    labels = collect(keys(data))
-    counts = collect(values(data))
+# Returns
+The plot object with the visualization of the passed attribute data.
 
-    proportions = [0; cumsum(counts)]
-    proportions = float(proportions) ./ proportions[end]
-
-    xcoords = proportions[1:end-1]
-    widths = proportions[2:end] .- xcoords
-    xcoords += gap .* range(0, length(proportions) - 2)
-    fullwidth = xcoords[end] + widths[end] - xcoords[1]
-    xcoords /= fullwidth
-    widths /= fullwidth
-
-    rectangles = [(x, 0, w, 1) for (x, w) in zip(xcoords, widths)]
-    p = plot(xlim=(0, 1), ylim=(0, 1), legend=false, grid=false, xticks=false, yticks=false)
-    for (label, rect) in zip(labels, rectangles)
-        x, y, w, h = rect
-        shape = rectangle(x, y, w, h)
-        color = get(colors, label, :match)
-        plot!(p, shape, linecolor=nothing, fillcolor=color)
-        annotate!(x + w / 2, y + h / 2, text(label, 10, :center))
-    end
-    return p
-end
-
-function markers(values, min, max, isantecedent)
-    shapes = Vector{Symbol}(undef, length(values))
-    for i in eachindex(values)
-        if min <= values[i] <= max
-            shapes[i] = isantecedent ? :star : :hexagon
-        else
-            shapes[i] = :circle
+# Throws
+- `AssertionError`: if an unsupported plot type is specified for the attribute.
+"""
+function plotattribute(
+    attribute::Union{NumericalAttribute,CategoricalAttribute},
+    transactions::DataFrame,
+    plot_type::String,
+    isantecedent::Bool
+)
+    if attribute isa CategoricalAttribute
+        return plot_categorical_attribute(attribute, transactions, isantecedent)
+    elseif attribute isa NumericalAttribute
+        if plot_type == "scatter"
+            return plot_scatter_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == "bar"
+            return plot_bar_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == "line"
+            return plot_line_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == "boxplot"
+            return plot_boxplot_num_attribute(attribute, transactions, isantecedent)
         end
     end
-    return shapes
+
+    @assert false "Unsupported plot type for attribute: $plot_type"
 end
 
-function plotattribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
-    numitems = nrow(transactions)
-    x = 1:numitems
-    y = transactions[:, attribute.name]
-    markershape = markers(y, attribute.min, attribute.max, true)
-    linecolour = isantecedent ? :purple : :green
-    surfacecolor = isantecedent ? :blue : :red
+"""
+    plotfeature(feature, transactions, plot_type)
 
-    area = plot(
-        rectangle(0, attribute.min, numitems, attribute.max - attribute.min),
-        opacity=0.5,
-        fill=surfacecolor,
-        aspect=:equal
-    )
+Generates a visualization for a single feature based on the provided transactions data.
 
-    return plot(
-        area,
-        x,
-        y,
-        title=attribute.name,
-        titlefontsize=6,
-        xtickfontsize=4,
-        xguidefontsize=4,
-        ytickfontsize=4,
-        seriestype=:scatter,
-        colour=linecolour,
-        markershape=markershape,
-        markersize=2,
-        xlabel="series",
-        legend=false,
-        grid=length(y) < 100,
-    )
+# Arguments
+- `feature::Union{NumericalFeature,CategoricalFeature}`: a feature to visualize
+- `transactions::DataFrame`: a data frame containing transaction data
+- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot")
+
+# Returns
+The plot object with the visualization of the feature data.
+
+# Throws
+- `AssertionError`: if an unsupported plot type is specified for the feature.
+"""
+function plotfeature(
+    feature::Union{NumericalFeature,CategoricalFeature},
+    transactions::DataFrame,
+    plot_type::String
+)
+    if feature isa CategoricalFeature
+        return plot_categorical_feature(feature, transactions)
+    elseif feature isa NumericalFeature
+        if plot_type == "scatter"
+            return plot_scatter_num_feature(feature, transactions)
+        elseif plot_type == "bar"
+            return plot_bar_num_feature(feature, transactions)
+        elseif plot_type == "line"
+            return plot_line_num_feature(feature, transactions)
+        elseif plot_type == "boxplot"
+            return plot_boxplot_num_feature(feature, transactions)
+        end
+    end
+
+    @assert false "Unsupported plot type for feature: $plot_type"
 end
 
-function plotattribute(attribute::CategoricalAttribute, transactions::DataFrame, isantecedent::Bool)
-    data = valuecounts(transactions[:, attribute.name])
-    attributecolor = isantecedent ? :blue : :red
-    colors = Dict(category => category == attribute.category ? attributecolor : :grey for category in keys(data))
-    plt = mosaic(data, colors=colors)
-    title!(plt, attribute.name, titlefontsize=6)
-    return plt
-end
+"""
+    visualize(rule, data; path=nothing, allfeatures=false, antecedent=true, consequent=true,
+              timeseries=false, intervalcolumn="interval", interval=0, plot_type="scatter")
 
-function plotfeature(feature::NumericalFeature, transactions::DataFrame)
-    x = 1:nrow(transactions)
-    y = transactions[:, feature.name]
-    return plot(
-        x,
-        y,
-        title=feature.name,
-        titlefontsize=6,
-        xtickfontsize=4,
-        xguidefontsize=4,
-        ytickfontsize=4,
-        seriestype=:scatter,
-        markershape=:circle,
-        markersize=2,
-        color=randcolor(),
-        xlabel="series",
-        legend=false,
-        grid=length(y) < 100
-    )
+Visualizes a rule with respect to the provided dataset or transaction data.
 
-end
+# Arguments
+- `rule::Rule`: a rule to visualize
+- `data::Union{DataFrame,Dataset}`: a dataset or transaction data frame
 
-function plotfeature(feature::CategoricalFeature, transactions::DataFrame)
-    data = valuecounts(transactions[:, feature.name])
-    plt = mosaic(data)
-    title!(plt, feature.name, titlefontsize=6)
-    return plt
-end
+# Optional Arguments
+- `path::Union{String,Nothing}=nothing`: a path to save the plot (`nothing` displays plot)
+- `allfeatures::Bool=false`: if the visualization should include all features not in the rule.
+- `antecedent::Bool=true`: if the visualization should include attributes in the rule antecedent
+- `consequent::Bool=true`: if the visualization should include attributes in the rule consequent
+- `timeseries::Bool=false`: if the dataset should be filtered by time intervals
+- `intervalcolumn::String="interval"`: a column name to filter by time intervals
+- `interval::Int64=0`: a specific interval to visualize (if `timeseries` is `true`)
+- `plot_type::String="scatter"`: a type of plot to generate ("scatter", "bar", "line", or "boxplot")
 
+# Returns
+Displays or saves the generated plot based on the `path` parameter.
+"""
 function visualize(
     rule::Rule,
-    transactions::DataFrame;
+    data::Union{DataFrame,Dataset};
     path::Union{String,Nothing}=nothing,
     allfeatures::Bool=false,
     antecedent::Bool=true,
     consequent::Bool=true,
     timeseries::Bool=false,
     intervalcolumn::String="interval",
-    interval::Int64=0
+    interval::Int64=0,
+    plot_type::String="scatter"
 )
+    # Use passed transactions right away, or extract transactions if dataset is passed
+    transactions = data isa Dataset ? data.transactions : data
+
     df = transactions[:, :] # make copy
     if timeseries
         subset!(df, intervalcolumn => i -> i .== interval)
@@ -142,13 +124,13 @@ function visualize(
 
     if antecedent
         for attribute in rule.antecedent
-            push!(plots, plotattribute(attribute, df, true))
+            push!(plots, plotattribute(attribute, df, plot_type, true))
         end
     end
 
     if consequent
         for attribute in rule.consequent
-            push!(plots, plotattribute(attribute, df, false))
+            push!(plots, plotattribute(attribute, df, plot_type, false))
         end
     end
 
@@ -163,7 +145,7 @@ function visualize(
 
         features = NiaARM.getfeatures(df)
         for feature in features
-            push!(plots, plotfeature(feature, df))
+            push!(plots, plotfeature(feature, df, plot_type))
         end
     end
 
@@ -174,29 +156,4 @@ function visualize(
     else
         savefig(plt, path)
     end
-end
-
-
-function visualize(
-    rule::Rule,
-    dataset::Dataset;
-    path::Union{String,Nothing}=nothing,
-    allfeatures::Bool=false,
-    antecedent::Bool=true,
-    consequent::Bool=true,
-    timeseries::Bool=false,
-    intervalcolumn::String="interval",
-    interval::Int64=0
-)
-    visualize(
-        rule,
-        dataset.transactions,
-        path=path,
-        allfeatures=allfeatures,
-        antecedent=antecedent,
-        consequent=consequent,
-        timeseries=timeseries,
-        intervalcolumn=intervalcolumn,
-        interval=interval
-    )
 end

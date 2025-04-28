@@ -1,0 +1,30 @@
+# Contributing to NarmViz.jl
+👍🎉 First off, thanks for taking the time to contribute! 🎉👍
+
+## Code of Conduct
+This project and everyone participating in it is governed by the [NarmViz.jl Code of Conduct](https://github.com/firefly-cpp/NarmViz.jl/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [iztok.fister1@um.si](mailto:iztok.fister1@um.si).
+
+## How Can I Contribute?
+
+### Reporting Bugs
+Before creating bug reports, please check existing issues list as you might find out that you don't need to create one. When you are creating a bug report, please include as many details as possible in the [issue template](https://github.com/firefly-cpp/NarmViz.jl/blob/main/.github/templates/ISSUE_TEMPLATE.md).
+
+### Suggesting Enhancements
+
+Open new issue using the [feature request template](https://github.com/firefly-cpp/NarmViz.jl/blob/main/.github/templates/FEATURE_REQUEST.md).
+
+### Pull requests
+
+Fill in the [pull request template](https://github.com/firefly-cpp/NarmViz.jl/blob/main/.github/templates/PULL_REQUEST.md) and make sure your code is documented.
+
+## Development environment
+
+All of the project's dependencies should be installed and the project ready for further development.
+
+### Dependencies
+
+| Package             | Version | Platform |
+|---------------------|:-------:|:--------:|
+| CSV                 | 0.10.7  |   All    |
+| DataFrames          | 1.4.4   |   All    |
+| Plots               | 1.38.0  |   All    |
