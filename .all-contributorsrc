@@ -39,6 +39,18 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "IImpaq",
+      "name": "Marcus Gugacs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54801620?v=4",
+      "profile": "https://www.gugacs.me",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
