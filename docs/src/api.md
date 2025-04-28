@@ -5,4 +5,5 @@
 ```@docs
 NarmViz.plotattribute
 NarmViz.plotfeature
+NarmViz.visualize
 ```

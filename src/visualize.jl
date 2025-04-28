@@ -4,10 +4,10 @@
 Generates a visualization for a single attribute based on the provided transactions data.
 
 # Arguments
-- `attribute::Union{NumericalAttribute,CategoricalAttribute}`: an attribute to visualize.
-- `transactions::DataFrame`: a data frame containing transaction data.
-- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot").
-- `isantecedent::Bool`: a decision if the attribute is part of the antecedent (true) or consequent (false).
+- `attribute::Union{NumericalAttribute,CategoricalAttribute}`: an attribute to visualize
+- `transactions::DataFrame`: a data frame containing transaction data
+- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot")
+- `isantecedent::Bool`: a decision if the attribute is part of the antecedent (true) or consequent (false)
 
 # Returns
 The plot object with the visualization of the passed attribute data.
@@ -44,9 +44,9 @@ end
 Generates a visualization for a single feature based on the provided transactions data.
 
 # Arguments
-- `feature::Union{NumericalFeature,CategoricalFeature}`: a feature to visualize.
-- `transactions::DataFrame`: a data frame containing transaction data.
-- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot").
+- `feature::Union{NumericalFeature,CategoricalFeature}`: a feature to visualize
+- `transactions::DataFrame`: a data frame containing transaction data
+- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot")
 
 # Returns
 The plot object with the visualization of the feature data.
@@ -76,6 +76,29 @@ function plotfeature(
     @assert false "Unsupported plot type for feature: $plot_type"
 end
 
+"""
+    visualize(rule, data; path=nothing, allfeatures=false, antecedent=true, consequent=true,
+              timeseries=false, intervalcolumn="interval", interval=0, plot_type="scatter")
+
+Visualizes a rule with respect to the provided dataset or transaction data.
+
+# Arguments
+- `rule::Rule`: a rule to visualize
+- `data::Union{DataFrame,Dataset}`: a dataset or transaction data frame
+
+# Optional Arguments
+- `path::Union{String,Nothing}=nothing`: a path to save the plot (`nothing` displays plot)
+- `allfeatures::Bool=false`: if the visualization should include all features not in the rule.
+- `antecedent::Bool=true`: if the visualization should include attributes in the rule antecedent
+- `consequent::Bool=true`: if the visualization should include attributes in the rule consequent
+- `timeseries::Bool=false`: if the dataset should be filtered by time intervals
+- `intervalcolumn::String="interval"`: a column name to filter by time intervals
+- `interval::Int64=0`: a specific interval to visualize (if `timeseries` is `true`)
+- `plot_type::String="scatter"`: a type of plot to generate ("scatter", "bar", "line", or "boxplot")
+
+# Returns
+Displays or saves the generated plot based on the `path` parameter.
+"""
 function visualize(
     rule::Rule,
     data::Union{DataFrame,Dataset};
