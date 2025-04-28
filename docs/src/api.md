@@ -4,4 +4,5 @@
 
 ```@docs
 NarmViz.plotattribute
+NarmViz.plotfeature
 ```

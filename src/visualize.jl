@@ -1,7 +1,7 @@
 """
     plotattribute(attribute, transactions, plot_type, isantecedent)
 
-Generate a visualization for a single attribute based on the provided transactions data.
+Generates a visualization for a single attribute based on the provided transactions data.
 
 # Arguments
 - `attribute::Union{NumericalAttribute,CategoricalAttribute}`: an attribute to visualize.
@@ -38,6 +38,22 @@ function plotattribute(
     @assert false "Unsupported plot type for attribute: $plot_type"
 end
 
+"""
+    plotfeature(feature, transactions, plot_type)
+
+Generates a visualization for a single feature based on the provided transactions data.
+
+# Arguments
+- `feature::Union{NumericalFeature,CategoricalFeature}`: a feature to visualize.
+- `transactions::DataFrame`: a data frame containing transaction data.
+- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot").
+
+# Returns
+The plot object with the visualization of the feature data.
+
+# Throws
+- `AssertionError`: if an unsupported plot type is specified for the feature.
+"""
 function plotfeature(
     feature::Union{NumericalFeature,CategoricalFeature},
     transactions::DataFrame,
