@@ -1,3 +1,20 @@
+"""
+    plotattribute(attribute, transactions, plot_type, isantecedent)
+
+Generate a visualization for a single attribute based on the provided transactions data.
+
+# Arguments
+- `attribute::Union{NumericalAttribute,CategoricalAttribute}`: an attribute to visualize.
+- `transactions::DataFrame`: a data frame containing transaction data.
+- `plot_type::String`: a type of plot to generate ("scatter", "bar", "line", or "boxplot").
+- `isantecedent::Bool`: a decision if the attribute is part of the antecedent (true) or consequent (false).
+
+# Returns
+The plot object with the visualization of the passed attribute data.
+
+# Throws
+- `AssertionError`: if an unsupported plot type is specified for the attribute.
+"""
 function plotattribute(
     attribute::Union{NumericalAttribute,CategoricalAttribute},
     transactions::DataFrame,
