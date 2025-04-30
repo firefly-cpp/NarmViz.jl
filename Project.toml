@@ -1,6 +1,6 @@
 name = "NarmViz"
 uuid = "d2d28525-57f2-465a-853a-c9519fdcef4a"
-authors = ["Iztok Fister Jr. <iztok@iztok-jr-fister.eu>"]
+authors = ["Iztok Fister Jr. <iztok@iztok-jr-fister.eu>", "Marcus Gugacs <marcus@gugacs.me>", "Eva Haring <eva.haring@student.tugraz.at>"]
 version = "0.2.0"
 
 [deps]
