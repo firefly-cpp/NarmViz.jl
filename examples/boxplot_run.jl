@@ -22,12 +22,12 @@ rule = Rule(antecedent, consequent)
 visualize(
     rule,
     dataset,
-    path="example.pdf", # path (if not specified, the plot will be displayed in the GUI)
+    path="boxplot.pdf", # path (if not specified, the plot will be displayed in the GUI)
     allfeatures=false, # visualize all features, not only antecedents and consequence
     antecedent=true, # visualize antecedent
     consequent=true, # visualize consequent
     timeseries=true, # set false for non-time series datasets
     intervalcolumn="interval", # Name of the column which denotes the interval (only for time series datasets)
     interval=3, # which interval to visualize
-    plot_type="boxplot"
+    plot_type=Boxplot
 )
