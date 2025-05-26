@@ -2,7 +2,7 @@ using NarmViz
 using NiaARM
 
 # load transaction database
-dataset = Dataset("datasets/random_sportydatagen.csv")
+dataset = Dataset(joinpath(@__DIR__, "..", "datasets", "random_sportydatagen.csv"))
 
 # vector of antecedents
 antecedent = Attribute[
@@ -22,7 +22,7 @@ rule = Rule(antecedent, consequent)
 visualize(
     rule,
     dataset,
-    path="barchart.pdf", # path (if not specified, the plot will be displayed in the GUI)
+    path=joinpath("build", "barchart.pdf"), # path (if not specified, the plot will be displayed in the GUI)
     allfeatures=false, # visualize all features, not only antecedents and consequence
     antecedent=true, # visualize antecedent
     consequent=true, # visualize consequent
