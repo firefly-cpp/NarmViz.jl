@@ -4,4 +4,5 @@
     Scatter
     Bar
     Boxplot
+    Violin
 end
