@@ -6,7 +6,7 @@ Generates a visualization for a single attribute based on the provided transacti
 # Arguments
 - `attribute::Union{NumericalAttribute,CategoricalAttribute}`: an attribute to visualize
 - `transactions::DataFrame`: a data frame containing transaction data
-- `plot_type::VizType`: a type of plot to generate (e.g, Scatter, Boxploit, ...)
+- `plot_type::VizType`: a type of plot to generate (e.g, Scatter, Boxplot, ...)
 - `isantecedent::Bool`: a decision if the attribute is part of the antecedent (true) or consequent (false)
 
 # Returns
@@ -48,7 +48,7 @@ Generates a visualization for a single feature based on the provided transaction
 # Arguments
 - `feature::Union{NumericalFeature,CategoricalFeature}`: a feature to visualize
 - `transactions::DataFrame`: a data frame containing transaction data
-- `plot_type::VizType`: a type of plot to generate (e.g, Scatter, Boxploit, ...)
+- `plot_type::VizType`: a type of plot to generate (e.g, Scatter, Boxplot, ...)
 
 # Returns
 The plot object with the visualization of the feature data.
@@ -98,7 +98,7 @@ Visualizes a rule with respect to the provided dataset or transaction data.
 - `timeseries::Bool=false`: if the dataset should be filtered by time intervals
 - `intervalcolumn::String="interval"`: a column name to filter by time intervals
 - `interval::Int64=0`: a specific interval to visualize (if `timeseries` is `true`)
-- `plot_type::VizType=Scatter`: a type of plot to generate (e.g, Scatter, Boxploit, ...)
+- `plot_type::VizType=Scatter`: a type of plot to generate (e.g, Scatter, Boxplot, ...)
 
 # Returns
 Displays or saves the generated plot based on the `path` parameter.
