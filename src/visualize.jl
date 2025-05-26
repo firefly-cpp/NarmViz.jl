@@ -154,6 +154,10 @@ function visualize(
     if isnothing(path)
         display(plt)
     else
+        # Ensure the directory exists before saving the plot
+        if !ispath(dirname(path))
+            mkpath(dirname(path))
+        end
         savefig(plt, path)
     end
 end
