@@ -5,4 +5,5 @@
     Bar
     Boxplot
     Violin
+    Hexbin
 end

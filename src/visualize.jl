@@ -34,6 +34,8 @@ function plotattribute(
             return plot_boxplot_num_attribute(attribute, transactions, isantecedent)
         elseif plot_type == Violin
             return plot_violin_num_attribute(attribute, transactions, isantecedent)
+        elseif plot_type == Hexbin
+            return plot_hexbin_num_attribute(attribute, transactions, isantecedent)
         end
     end
 
@@ -74,6 +76,8 @@ function plotfeature(
             return plot_boxplot_num_feature(feature, transactions)
         elseif plot_type == Violin
             return plot_violin_num_feature(feature, transactions)
+        elseif plot_type == Hexbin
+            return plot_hexbin_num_feature(feature, transactions)
         end
     end
 
