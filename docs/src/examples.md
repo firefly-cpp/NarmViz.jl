@@ -107,3 +107,24 @@ nothing # hide
         <p>Your browser does not seem to support PDFs. <a href="linechart.pdf">(download instead)</a></p>
     </object>
 ```
+
+## Hexbin Plot
+### Code
+```@example
+using Markdown # hide
+code = read("../../examples/hexbin_run.jl", String) # hide
+Markdown.parse("```julia\n$(code)\n```") # hide
+```
+
+### Output
+```@example
+path = joinpath(@__DIR__, "..", "..", "examples", "hexbin_run.jl") # hide
+@async run(`$(Base.julia_cmd()) $(Base.shell_escape(path))`, wait=false) # hide
+nothing # hide
+```
+
+```@raw html
+    <object data="hexbin.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="hexbin.pdf">(download instead)</a></p>
+    </object>
+```
