@@ -28,4 +28,5 @@ All of the project's dependencies should be installed and the project ready for 
 | CSV                 | 0.10.7  |   All    |
 | DataFrames          | 1.4.4   |   All    |
 | Plots               | 1.38.0  |   All    |
+| StatsBase           | 0.34.5  |   All    |
 | StatsPlots          | 0.15.7  |   All    |
