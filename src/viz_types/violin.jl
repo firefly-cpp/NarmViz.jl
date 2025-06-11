@@ -1,7 +1,7 @@
 function plot_violin_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
     data = transactions[:, attribute.name]
     linecolour = isantecedent ? :purple : :green
-    surfacecolor = isantecedent ? :blue : :red
+    surfacecolor = isantecedent ? :purple : :green
 
 
     p = violin(
@@ -16,8 +16,7 @@ function plot_violin_num_attribute(attribute::NumericalAttribute, transactions::
         legend=false
     )
 
-    # highlight min-max range
-    # Todo
+    # TODO: highlight min-max range
 
     return p
 end
