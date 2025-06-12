@@ -1,10 +1,10 @@
-function plot_boxplot_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
+function plot_violin_num_attribute(attribute::NumericalAttribute, transactions::DataFrame, isantecedent::Bool)
     data = transactions[:, attribute.name]
     linecolour = isantecedent ? :purple : :green
     surfacecolor = isantecedent ? :purple : :green
 
 
-    p = boxplot(
+    p = violin(
         [attribute.name],
         [data],
         title=attribute.name,
@@ -21,10 +21,10 @@ function plot_boxplot_num_attribute(attribute::NumericalAttribute, transactions:
     return p
 end
 
-function plot_boxplot_num_feature(feature::NumericalFeature, transactions::DataFrame)
+function plot_violin_num_feature(feature::NumericalFeature, transactions::DataFrame)
     data = transactions[:, feature.name]
 
-    return boxplot(
+    return violin(
         [feature.name],
         [data],
         title=feature.name,

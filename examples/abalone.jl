@@ -1,7 +1,7 @@
 using NiaARM
 using NarmViz
 
-dataset = Dataset("datasets/Abalone.csv")
+dataset = Dataset(joinpath(@__DIR__, "..", "datasets", "Abalone.csv"))
 
 antecedent = Attribute[
     NumericalAttribute("Rings", 5, 19),
