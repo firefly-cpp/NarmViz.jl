@@ -22,9 +22,9 @@
 
 <p align="center">
   <a href="#-detailed-insights">✨ Detailed insights</a> •
-  <a href="#-visualization-examples">📊 Visualization examples</a> •
   <a href="#-installation">📦 Installation</a> •
-  <a href="#-usage">🚀 Usage</a> •
+  <a href="#-usage">🚀 Usage Example</a> •
+  <a href="#-visualization-examples">📊 Visualization examples</a> •
   <a href="#-references">📚 References</a> •
   <a href="#-related-software">🔗 Related software</a> •
   <a href="#-cite-us">📄 Cite us</a> •
@@ -62,7 +62,7 @@ using NarmViz
 Now you are ready to start visualizing your data with NarmViz.jl!
 For further information on how to use the package, check out the [API Reference](api.md) and [Examples](examples.md) sections.
 
-## 🚀 Examples
+## 🚀 Usage Example
 
 This section provides a basic example of how to use NarmViz.jl to visualize numerical association rules as a scatter plot.
 If you want to get more insights into the package, check out the [other examples](examples/) and the in depth documentation.
