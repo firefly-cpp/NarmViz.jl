@@ -41,32 +41,40 @@ The current version includes (but is not limited to) the following functions:
 - visualization of association rules 📊
 - exporting figures to files 💾
 
-## 📊 Visualization examples
-
-|                                          Example 1                                          |                                          Example 2                                          |
-|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
-| ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig1.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig2.png) |
-
-|                                          Example 3                                          |                                          Example 4                                          |
-|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
-| ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig3.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig4.png) |
-
 ## 📦 Installation
 
-```
+### Julia
+To install Julia, follow the instructions on the [official Julia website](https://julialang.org/install/).
+Make sure to download the version compatible with your operating system.
+
+### NarmViz.jl
+To install NarmViz.jl, open the Julia REPL, type `]` to enter the package manager, and run the following command:
+```julia
 pkg> add NarmViz
 ```
+This will install the latest version of NarmViz.jl and its dependencies.
 
-## 🚀 Usage
+### Basic Usage
+To use NarmViz.jl, you need to import the package in your Julia script or REPL:
+```julia
+using NarmViz
+```
+Now you are ready to start visualizing your data with NarmViz.jl!
+For further information on how to use the package, check out the [API Reference](api.md) and [Examples](examples.md) sections.
 
-### Basic run example
+## 🚀 Examples
+
+This section provides a basic example of how to use NarmViz.jl to visualize numerical association rules as a scatter plot.
+If you want to get more insights into the package, check out the [other examples](examples/) and the in depth documentation.
+
+### Basic usage
 
 ```julia
 using NarmViz
 using NiaARM
 
 # load transaction database
-dataset = Dataset("datasets/random_sportydatagen.csv")
+dataset = Dataset(joinpath(@__DIR__, "..", "datasets", "random_sportydatagen.csv"))
 
 # vector of antecedents
 antecedent = Attribute[
@@ -86,15 +94,27 @@ rule = Rule(antecedent, consequent)
 visualize(
     rule,
     dataset,
-    path="example.pdf", # path (if not specified, the plot will be displayed in the GUI)
+    path=joinpath("build", "scatter.pdf"), # path (if not specified, the plot will be displayed in the GUI)
     allfeatures=false, # visualize all features, not only antecedents and consequence
     antecedent=true, # visualize antecedent
     consequent=true, # visualize consequent
     timeseries=true, # set false for non-time series datasets
     intervalcolumn="interval", # Name of the column which denotes the interval (only for time series datasets)
-    interval=3 # which interval to visualize
+    interval=3, # which interval to visualize
+    plot_type=Scatter
 )
+
 ```
+
+## 📊 Visualization examples
+
+|                                          Example 1                                          |                                          Example 2                                          |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
+| ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig1.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig2.png) |
+
+|                                          Example 3                                          |                                          Example 4                                          |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
+| ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig3.png) | ![](https://raw.githubusercontent.com/firefly-cpp/NarmViz.jl/main/.github/figures/Fig4.png) |
 
 ## 📚 References
 
@@ -118,7 +138,7 @@ Fister, I. Jr, Fister, I., Podgorelec, V., Salcedo-Sanz, S., & Holzinger, A. (20
 
 ## 🔑 License
 
-This package is distributed under the MIT License. This license can be found online at <http://www.opensource.org/licenses/MIT>.
+This package is distributed under the [MIT License](LICENSE). This license can be found online at <http://www.opensource.org/licenses/MIT>.
 
 ## Disclaimer
 
