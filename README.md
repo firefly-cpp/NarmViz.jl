@@ -21,15 +21,15 @@
 </p>
 
 <p align="center">
-  <a href="#-detailed-insights" style="break-inside: avoid;">✨ Detailed insights</a> •
-  <a href="#-installation" style="break-inside: avoid;">📦 Installation</a> •
-  <a href="#-usage-example" style="break-inside: avoid;">🚀 Usage Example</a> •
-  <a href="#-visualization-examples" style="break-inside: avoid;">📊 Visualization examples</a> •
-  <a href="#-references" style="break-inside: avoid;">📚 References</a> •
-  <a href="#-related-software" style="break-inside: avoid;">🔗 Related software</a> •
-  <a href="#-cite-us" style="break-inside: avoid;">📄 Cite us</a> •
-  <a href="#-license" style="break-inside: avoid;">🔑 License</a> •
-  <a href="#-contributors" style="break-inside: avoid;">🫂 Contributors</a>
+  <a href="#-detailed-insights">✨ Detailed insights</a> •
+  <a href="#-installation">📦 Installation</a> •
+  <a href="#-usage-example">🚀 Usage Example</a> •
+  <a href="#-visualization-examples">📊 Visualization examples</a> •
+  <a href="#-references">📚 References</a> •
+  <a href="#-related-software">🔗 Related software</a> •
+  <a href="#-cite-us">📄 Cite us</a> •
+  <a href="#-license">🔑 License</a> •
+  <a href="#-contributors">🫂 Contributors</a>
 </p>
 
 NarmViz.jl is a Julia framework primarily developed to visualize time series numerical association rules. 📈 The framework also supports visualization of other numerical association rules.
