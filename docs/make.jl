@@ -4,7 +4,6 @@ using NarmViz
 makedocs(
     sitename = "NarmViz",
     format = Documenter.HTML(
-      prettyurls = get(ENV, "CI", nothing) == "true",
       canonical = "https://github.com/firefly-cpp/NarmViz.jl"
     ),
     modules = [NarmViz],
@@ -17,4 +16,9 @@ makedocs(
         "Contributing" => "contributing.md",
         "License" => "license.md"
     ]
+)
+
+deploydocs(
+    repo = "https://github.com/firefly-cpp/NarmViz.jl",
+    push_preview = true,
 )
