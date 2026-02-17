@@ -69,13 +69,13 @@ using NiaARM
 dataset = Dataset("datasets/random_sportydatagen.csv")
 
 # vector of antecedents
-antecedent = Attribute[
+antecedent = [
     NumericalAttribute("duration", 50, 65),
     NumericalAttribute("distance", 15.0, 40.0),
 ]
 
 # vector of consequents
-consequent = Attribute[
+consequent = [
     NumericalAttribute("calories", 200.0, 450.0),
     NumericalAttribute("descent", 50.0, 140.0),
 ]

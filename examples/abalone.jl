@@ -3,11 +3,11 @@ using NarmViz
 
 dataset = Dataset(joinpath(@__DIR__, "..", "datasets", "Abalone.csv"))
 
-antecedent = Attribute[
+antecedent = [
     NumericalAttribute("Rings", 5, 19),
 ]
 
-consequent = Attribute[
+consequent = [
     CategoricalAttribute("Sex", "M")
 ]
 

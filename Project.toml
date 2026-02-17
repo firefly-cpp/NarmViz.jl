@@ -14,7 +14,7 @@ StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
 [compat]
 CSV = "0.10.7"
 DataFrames = "1.4.4"
-NiaARM = "0.2.0"
+NiaARM = "0.3.0"
 Plots = "1.38.0"
 StatsBase = "0.34.5"
 StatsPlots = "0.15.7"
