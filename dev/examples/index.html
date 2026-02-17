@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Examples · NarmViz</title><meta name="title" content="Examples · NarmViz"/><meta property="og:title" content="Examples · NarmViz"/><meta property="twitter:title" content="Examples · NarmViz"/><meta name="description" content="Documentation for NarmViz."/><meta property="og:description" content="Documentation for NarmViz."/><meta property="twitter:description" content="Documentation for NarmViz."/><meta property="og:url" content="https://github.com/firefly-cpp/NarmViz.jl/examples/"/><meta property="twitter:url" content="https://github.com/firefly-cpp/NarmViz.jl/examples/"/><link rel="canonical" href="https://github.com/firefly-cpp/NarmViz.jl/examples/"/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">NarmViz</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><a class="tocitem" href="../getting_started/">Getting Started</a></li><li><a class="tocitem" href="../api/">API Reference</a></li><li class="is-active"><a class="tocitem" href>Examples</a><ul class="internal"><li><a class="tocitem" href="#Scatterplot"><span>Scatterplot</span></a></li><li><a class="tocitem" href="#Barchart"><span>Barchart</span></a></li><li><a class="tocitem" href="#Boxplot"><span>Boxplot</span></a></li><li><a class="tocitem" href="#Violin"><span>Violin</span></a></li><li><a class="tocitem" href="#Linechart"><span>Linechart</span></a></li><li><a class="tocitem" href="#Hexbin-Plot"><span>Hexbin Plot</span></a></li></ul></li><li><a class="tocitem" href="../contributors/">Contributors</a></li><li><a class="tocitem" href="../contributing/">Contributing</a></li><li><a class="tocitem" href="../license/">License</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Examples</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Examples</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/firefly-cpp/NarmViz.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/firefly-cpp/NarmViz.jl/blob/main/docs/src/examples.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Examples"><a class="docs-heading-anchor" href="#Examples">Examples</a><a id="Examples-1"></a><a class="docs-heading-anchor-permalink" href="#Examples" title="Permalink"></a></h1><p>The following examples demonstrate how to use NarmViz.jl for visualizing (time series) numerical association rules. There are several examples available, each showcasing different visualization techniques and features of the package. The examples are provided in Julia code blocks, you either copy them from here or take a look at the <a href="https://github.com/firefly-cpp/NarmViz.jl/tree/main/examples">examples folder</a> to run them in your Julia environment.</p><h2 id="Scatterplot"><a class="docs-heading-anchor" href="#Scatterplot">Scatterplot</a><a id="Scatterplot-1"></a><a class="docs-heading-anchor-permalink" href="#Scatterplot" title="Permalink"></a></h2><h3 id="Code"><a class="docs-heading-anchor" href="#Code">Code</a><a id="Code-1"></a><a class="docs-heading-anchor-permalink" href="#Code" title="Permalink"></a></h3><div class="markdown"><pre><code class="language-julia">using NarmViz
+using NiaARM
+
+# load transaction database
+dataset &#61; Dataset&#40;joinpath&#40;@__DIR__, &quot;..&quot;, &quot;datasets&quot;, &quot;random_sportydatagen.csv&quot;&#41;&#41;
+
+# vector of antecedents
+antecedent &#61; &#91;
+    NumericalAttribute&#40;&quot;duration&quot;, 50, 65&#41;,
+    NumericalAttribute&#40;&quot;distance&quot;, 15.0, 40.0&#41;,
+&#93;
+
+# vector of consequents
+consequent &#61; &#91;
+    NumericalAttribute&#40;&quot;calories&quot;, 200.0, 450.0&#41;,
+    NumericalAttribute&#40;&quot;descent&quot;, 50.0, 140.0&#41;,
+&#93;
+
+rule &#61; Rule&#40;antecedent, consequent&#41;
+
+# call the visualization function
+visualize&#40;
+    rule,
+    dataset,
+    path&#61;joinpath&#40;&quot;build&quot;, &quot;scatter.pdf&quot;&#41;, # path &#40;if not specified, the plot will be displayed in the GUI&#41;
+    allfeatures&#61;false, # visualize all features, not only antecedents and consequence
+    antecedent&#61;true, # visualize antecedent
+    consequent&#61;true, # visualize consequent
+    timeseries&#61;true, # set false for non-time series datasets
+    intervalcolumn&#61;&quot;interval&quot;, # Name of the column which denotes the interval &#40;only for time series datasets&#41;
+    interval&#61;3, # which interval to visualize
+    plot_type&#61;Scatter
+&#41;
+</code></pre>
+</div><h3 id="Output"><a class="docs-heading-anchor" href="#Output">Output</a><a id="Output-1"></a><a class="docs-heading-anchor-permalink" href="#Output" title="Permalink"></a></h3>    <object data="scatter.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="scatter.pdf">(download instead)</a></p>
+    </object><h2 id="Barchart"><a class="docs-heading-anchor" href="#Barchart">Barchart</a><a id="Barchart-1"></a><a class="docs-heading-anchor-permalink" href="#Barchart" title="Permalink"></a></h2><h3 id="Code-2"><a class="docs-heading-anchor" href="#Code-2">Code</a><a class="docs-heading-anchor-permalink" href="#Code-2" title="Permalink"></a></h3><div class="markdown"><pre><code class="language-julia">using NarmViz
+using NiaARM
+
+# load transaction database
+dataset &#61; Dataset&#40;joinpath&#40;@__DIR__, &quot;..&quot;, &quot;datasets&quot;, &quot;random_sportydatagen.csv&quot;&#41;&#41;
+
+# vector of antecedents
+antecedent &#61; &#91;
+    NumericalAttribute&#40;&quot;duration&quot;, 50, 65&#41;,
+    NumericalAttribute&#40;&quot;distance&quot;, 15.0, 40.0&#41;,
+&#93;
+
+# vector of consequents
+consequent &#61; &#91;
+    NumericalAttribute&#40;&quot;calories&quot;, 200.0, 450.0&#41;,
+    NumericalAttribute&#40;&quot;descent&quot;, 50.0, 140.0&#41;,
+&#93;
+
+rule &#61; Rule&#40;antecedent, consequent&#41;
+
+# call the visualization function
+visualize&#40;
+    rule,
+    dataset,
+    path&#61;joinpath&#40;&quot;build&quot;, &quot;barchart.pdf&quot;&#41;, # path &#40;if not specified, the plot will be displayed in the GUI&#41;
+    allfeatures&#61;false, # visualize all features, not only antecedents and consequence
+    antecedent&#61;true, # visualize antecedent
+    consequent&#61;true, # visualize consequent
+    timeseries&#61;true, # set false for non-time series datasets
+    intervalcolumn&#61;&quot;interval&quot;, # Name of the column which denotes the interval &#40;only for time series datasets&#41;
+    interval&#61;3, # which interval to visualize
+    plot_type&#61;Bar
+&#41;
+</code></pre>
+</div><h3 id="Output-2"><a class="docs-heading-anchor" href="#Output-2">Output</a><a class="docs-heading-anchor-permalink" href="#Output-2" title="Permalink"></a></h3>    <object data="barchart.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="barchart.pdf">(download instead)</a></p>
+    </object><h2 id="Boxplot"><a class="docs-heading-anchor" href="#Boxplot">Boxplot</a><a id="Boxplot-1"></a><a class="docs-heading-anchor-permalink" href="#Boxplot" title="Permalink"></a></h2><h3 id="Code-3"><a class="docs-heading-anchor" href="#Code-3">Code</a><a class="docs-heading-anchor-permalink" href="#Code-3" title="Permalink"></a></h3><div class="markdown"><pre><code class="language-julia">using NarmViz
+using NiaARM
+
+# load transaction database
+dataset &#61; Dataset&#40;joinpath&#40;@__DIR__, &quot;..&quot;, &quot;datasets&quot;, &quot;random_sportydatagen.csv&quot;&#41;&#41;
+
+# vector of antecedents
+antecedent &#61; &#91;
+    NumericalAttribute&#40;&quot;duration&quot;, 50, 65&#41;,
+    NumericalAttribute&#40;&quot;distance&quot;, 15.0, 40.0&#41;,
+&#93;
+
+# vector of consequents
+consequent &#61; &#91;
+    NumericalAttribute&#40;&quot;calories&quot;, 200.0, 450.0&#41;,
+    NumericalAttribute&#40;&quot;descent&quot;, 50.0, 140.0&#41;,
+&#93;
+
+rule &#61; Rule&#40;antecedent, consequent&#41;
+
+# call the visualization function
+visualize&#40;
+    rule,
+    dataset,
+    path&#61;joinpath&#40;&quot;build&quot;, &quot;boxplot.pdf&quot;&#41;, # path &#40;if not specified, the plot will be displayed in the GUI&#41;
+    allfeatures&#61;false, # visualize all features, not only antecedents and consequence
+    antecedent&#61;true, # visualize antecedent
+    consequent&#61;true, # visualize consequent
+    timeseries&#61;true, # set false for non-time series datasets
+    intervalcolumn&#61;&quot;interval&quot;, # Name of the column which denotes the interval &#40;only for time series datasets&#41;
+    interval&#61;3, # which interval to visualize
+    plot_type&#61;Boxplot
+&#41;
+</code></pre>
+</div><h3 id="Output-3"><a class="docs-heading-anchor" href="#Output-3">Output</a><a class="docs-heading-anchor-permalink" href="#Output-3" title="Permalink"></a></h3>    <object data="boxplot.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="boxplot.pdf">(download instead)</a></p>
+    </object><h2 id="Violin"><a class="docs-heading-anchor" href="#Violin">Violin</a><a id="Violin-1"></a><a class="docs-heading-anchor-permalink" href="#Violin" title="Permalink"></a></h2><h3 id="Code-4"><a class="docs-heading-anchor" href="#Code-4">Code</a><a class="docs-heading-anchor-permalink" href="#Code-4" title="Permalink"></a></h3><div class="markdown"><pre><code class="language-julia">using NarmViz
+using NiaARM
+
+# load transaction database
+dataset &#61; Dataset&#40;joinpath&#40;@__DIR__, &quot;..&quot;, &quot;datasets&quot;, &quot;random_sportydatagen.csv&quot;&#41;&#41;
+
+# vector of antecedents
+antecedent &#61; &#91;
+    NumericalAttribute&#40;&quot;duration&quot;, 50, 65&#41;,
+    NumericalAttribute&#40;&quot;distance&quot;, 15.0, 40.0&#41;,
+&#93;
+
+# vector of consequents
+consequent &#61; &#91;
+    NumericalAttribute&#40;&quot;calories&quot;, 200.0, 450.0&#41;,
+    NumericalAttribute&#40;&quot;descent&quot;, 50.0, 140.0&#41;,
+&#93;
+
+rule &#61; Rule&#40;antecedent, consequent&#41;
+
+# call the visualization function
+visualize&#40;
+    rule,
+    dataset,
+    path&#61;joinpath&#40;&quot;build&quot;, &quot;violin.pdf&quot;&#41;, # path &#40;if not specified, the plot will be displayed in the GUI&#41;
+    allfeatures&#61;false, # visualize all features, not only antecedents and consequence
+    antecedent&#61;true, # visualize antecedent
+    consequent&#61;true, # visualize consequent
+    timeseries&#61;true, # set false for non-time series datasets
+    intervalcolumn&#61;&quot;interval&quot;, # Name of the column which denotes the interval &#40;only for time series datasets&#41;
+    interval&#61;3, # which interval to visualize
+    plot_type&#61;Violin
+&#41;
+</code></pre>
+</div><h3 id="Output-4"><a class="docs-heading-anchor" href="#Output-4">Output</a><a class="docs-heading-anchor-permalink" href="#Output-4" title="Permalink"></a></h3>    <object data="violin.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="violin.pdf">(download instead)</a></p>
+    </object><h2 id="Linechart"><a class="docs-heading-anchor" href="#Linechart">Linechart</a><a id="Linechart-1"></a><a class="docs-heading-anchor-permalink" href="#Linechart" title="Permalink"></a></h2><h3 id="Code-5"><a class="docs-heading-anchor" href="#Code-5">Code</a><a class="docs-heading-anchor-permalink" href="#Code-5" title="Permalink"></a></h3><div class="markdown"><pre><code class="language-julia">using NarmViz
+using NiaARM
+
+# load transaction database
+dataset &#61; Dataset&#40;joinpath&#40;@__DIR__, &quot;..&quot;, &quot;datasets&quot;, &quot;random_sportydatagen.csv&quot;&#41;&#41;
+
+# vector of antecedents
+antecedent &#61; &#91;
+    NumericalAttribute&#40;&quot;duration&quot;, 50, 65&#41;,
+    NumericalAttribute&#40;&quot;distance&quot;, 15.0, 40.0&#41;,
+&#93;
+
+# vector of consequents
+consequent &#61; &#91;
+    NumericalAttribute&#40;&quot;calories&quot;, 200.0, 450.0&#41;,
+    NumericalAttribute&#40;&quot;descent&quot;, 50.0, 140.0&#41;,
+&#93;
+
+rule &#61; Rule&#40;antecedent, consequent&#41;
+
+# call the visualization function
+visualize&#40;
+    rule,
+    dataset,
+    path&#61;joinpath&#40;&quot;build&quot;, &quot;linechart.pdf&quot;&#41;, # path &#40;if not specified, the plot will be displayed in the GUI&#41;
+    allfeatures&#61;false, # visualize all features, not only antecedents and consequence
+    antecedent&#61;true, # visualize antecedent
+    consequent&#61;true, # visualize consequent
+    timeseries&#61;true, # set false for non-time series datasets
+    intervalcolumn&#61;&quot;interval&quot;, # Name of the column which denotes the interval &#40;only for time series datasets&#41;
+    interval&#61;3, # which interval to visualize
+    plot_type&#61;Line
+&#41;
+</code></pre>
+</div><h3 id="Output-5"><a class="docs-heading-anchor" href="#Output-5">Output</a><a class="docs-heading-anchor-permalink" href="#Output-5" title="Permalink"></a></h3>    <object data="linechart.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="linechart.pdf">(download instead)</a></p>
+    </object><h2 id="Hexbin-Plot"><a class="docs-heading-anchor" href="#Hexbin-Plot">Hexbin Plot</a><a id="Hexbin-Plot-1"></a><a class="docs-heading-anchor-permalink" href="#Hexbin-Plot" title="Permalink"></a></h2><h3 id="Code-6"><a class="docs-heading-anchor" href="#Code-6">Code</a><a class="docs-heading-anchor-permalink" href="#Code-6" title="Permalink"></a></h3><div class="markdown"><pre><code class="language-julia">using NarmViz
+using NiaARM
+
+# load transaction database
+dataset &#61; Dataset&#40;joinpath&#40;@__DIR__, &quot;..&quot;, &quot;datasets&quot;, &quot;random_sportydatagen.csv&quot;&#41;&#41;
+
+# vector of antecedents
+antecedent &#61; &#91;
+    NumericalAttribute&#40;&quot;duration&quot;, 50, 65&#41;,
+    NumericalAttribute&#40;&quot;distance&quot;, 15.0, 40.0&#41;,
+&#93;
+
+# vector of consequents
+consequent &#61; &#91;
+    NumericalAttribute&#40;&quot;calories&quot;, 200.0, 450.0&#41;,
+    NumericalAttribute&#40;&quot;descent&quot;, 50.0, 140.0&#41;,
+&#93;
+
+rule &#61; Rule&#40;antecedent, consequent&#41;
+
+# call the visualization function
+visualize&#40;
+    rule,
+    dataset,
+    path&#61;joinpath&#40;&quot;build&quot;, &quot;hexbin.pdf&quot;&#41;, # path &#40;if not specified, the plot will be displayed in the GUI&#41;
+    allfeatures&#61;false, # visualize all features, not only antecedents and consequence
+    antecedent&#61;true, # visualize antecedent
+    consequent&#61;true, # visualize consequent
+    timeseries&#61;true, # set false for non-time series datasets
+    intervalcolumn&#61;&quot;interval&quot;, # Name of the column which denotes the interval &#40;only for time series datasets&#41;
+    interval&#61;3, # which interval to visualize
+    plot_type&#61;Hexbin
+&#41;
+</code></pre>
+</div><h3 id="Output-6"><a class="docs-heading-anchor" href="#Output-6">Output</a><a class="docs-heading-anchor-permalink" href="#Output-6" title="Permalink"></a></h3>    <object data="hexbin.pdf" type="application/pdf" width="100%" height="600px">
+        <p>Your browser does not seem to support PDFs. <a href="hexbin.pdf">(download instead)</a></p>
+    </object></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../api/">« API Reference</a><a class="docs-footer-nextpage" href="../contributors/">Contributors »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.16.1 on <span class="colophon-date" title="Tuesday 17 February 2026 12:58">Tuesday 17 February 2026</span>. Using Julia version 1.12.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
